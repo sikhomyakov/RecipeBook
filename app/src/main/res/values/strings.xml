@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">NMedia</string>
     <string name="Hello">NMedia!</string>
+    <string name="avatar_description">Author avatar</string>
+    <string name="options_description">Options button</string>
+    <string name="post">Post text</string>
+    <string name="like_description">Like button</string>
+    <string name="share_description">Share button</string>
+    <string name="view_description">Viev icon</string>
+
 </resources>
