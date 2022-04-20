@@ -12,38 +12,41 @@
         android:layout_height="@dimen/post_avatar_size"
         android:layout_marginBottom="@dimen/common_spacing"
         android:contentDescription="@string/avatar_description"
+        app:layout_constraintBottom_toTopOf="@+id/postText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/ic_launcher_foreground" />
+        tools:srcCompat="@drawable/ic_netology_48" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/authorName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="@dimen/common_spacing"
         android:ellipsize="end"
         android:singleLine="true"
         android:textSize="@dimen/default_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/published"
+
         app:layout_constraintEnd_toStartOf="@id/options"
         app:layout_constraintStart_toEndOf="@id/avatar"
         app:layout_constraintTop_toTopOf="@+id/avatar"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:text="Нетология" />
+        tools:text="Нетология. Университет интернет-профессий." />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/published"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginBottom="8dp"
         android:ellipsize="end"
         android:singleLine="true"
         android:textSize="@dimen/default_text_size"
-        app:layout_constraintBottom_toTopOf="@+id/postText"
+        app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintEnd_toEndOf="@+id/authorName"
         app:layout_constraintStart_toEndOf="@id/avatar"
-        tools:text="20 апреля 2022" />
+        tools:text="20 апреля в 23:12" />
 
     <ImageButton
         android:id="@+id/options"
@@ -68,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:padding="@dimen/common_spacing"
+        android:lineSpacingMultiplier="1.5"
         android:textSize="@dimen/default_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
