@@ -4,8 +4,10 @@
     <string name="Hello">НМедиа!</string>
     <string name="avatar_description">Аватар автора</string>
     <string name="options_description">Кнопка опций</string>
-    <string name="post">Текст поста</string>
+    <string name="post">Привет, это новая Нетология! Когда-то Нетология читалась с интенсивами по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растим сами и помогаем студентам: от новичков до уверенных профессионалов. Но самое важное остается с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь выйти на путь роста и начать цепочку перемен → http://netolo.gy/fyb</string>
     <string name="like_description">Кнопка Лайк</string>
     <string name="share_description">Кнопка Отправить</string>
     <string name="view_description">Иконка просмотров</string>
+    <string name="published">22 апреля в 22.22</string>
+    <string name="author">Нетология. Университет интернет-профессий будущего</string>
 </resources>

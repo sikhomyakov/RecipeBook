@@ -12,7 +12,8 @@
         <entry key="..\:/Users/SIKhomyakov/AndroidStudioProjects/FirstApp2/app/src/main/res/drawable/ic_share_24.xml" value="0.2405" />
         <entry key="..\:/Users/SIKhomyakov/AndroidStudioProjects/FirstApp2/app/src/main/res/drawable/ic_views_24.xml" value="0.136" />
         <entry key="..\:/Users/SIKhomyakov/AndroidStudioProjects/FirstApp2/app/src/main/res/drawable/ic_views_foreground.xml" value="0.2405" />
-        <entry key="..\:/Users/SIKhomyakov/AndroidStudioProjects/FirstApp2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/SIKhomyakov/AndroidStudioProjects/FirstApp2/app/src/main/res/drawable/post_avatars_drowable.xml" value="0.126" />
+        <entry key="..\:/Users/SIKhomyakov/AndroidStudioProjects/FirstApp2/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/SIKhomyakov/AndroidStudioProjects/FirstApp2/app/src/main/res/layout/post.xml" value="0.264" />
         <entry key="..\:/Users/SIKhomyakov/AndroidStudioProjects/FirstApp2/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.124" />
       </map>
@@ -27,7 +28,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.264" />
+        <option name="scale" value="0.4" />
       </ProjectState>
     </option>
   </component>
