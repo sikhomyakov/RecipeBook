@@ -3,10 +3,10 @@
     <string name="Hello">NMedia!</string>
     <string name="avatar_description">Author avatar</string>
     <string name="options_description">Options button</string>
-    <string name="post">Hello, this is the new Netology! Once upon a time, Netology was read with online marketing intensives. Then there were courses on design, development, analytics and management. We grow ourselves and help students: from beginners to confident professionals. But the most important thing remains with us: we believe that everyone already has the power that makes you want more, aim higher, run faster. Our mission is to help get on the path of growth and start a chain of change → http://netolo.gy/fyb</string>
+    <string name="content">Post text</string>
     <string name="like_description">Like button</string>
     <string name="share_description">Share button</string>
     <string name="view_description">View icon</string>
-    <string name="author">Netology. University of Internet Professions of the Future</string>
+    <string name="author">Author</string>
     <string name="published">22 april at 22.22</string>
 </resources>

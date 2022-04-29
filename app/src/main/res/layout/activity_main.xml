@@ -14,13 +14,13 @@
         android:layout_marginBottom="@dimen/common_spacing"
         android:contentDescription="@string/avatar_description"
         android:src="@drawable/post_avatar"
-        app:layout_constraintBottom_toTopOf="@+id/postText"
+        app:layout_constraintBottom_toTopOf="@+id/content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
       />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/authorName"
+        android:id="@+id/author"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
@@ -45,7 +45,7 @@
         android:singleLine="true"
         android:textSize="@dimen/default_text_size"
         app:layout_constraintBottom_toBottomOf="@+id/avatar"
-        app:layout_constraintEnd_toEndOf="@+id/authorName"
+        app:layout_constraintEnd_toEndOf="@+id/author"
         app:layout_constraintStart_toEndOf="@id/avatar"
         android:text="@string/published" />
 
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:contentDescription="@string/options_description"
-        app:layout_constraintBottom_toBottomOf="@+id/authorName"
+        app:layout_constraintBottom_toBottomOf="@+id/author"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/avatar"
         android:src="@drawable/ic_options_24" />
@@ -68,7 +68,7 @@
         app:constraint_referenced_ids="avatar, published, options" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/postText"
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
@@ -77,14 +77,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerBarrier"
-        android:text="@string/post" />
+        android:text="@string/content" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/footer"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="postText" />
+        app:constraint_referenced_ids="content" />
 
     <ImageButton
         android:id="@+id/like"
