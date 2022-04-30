@@ -108,7 +108,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/like"
         app:layout_constraintStart_toEndOf="@+id/like"
         app:layout_constraintTop_toTopOf="@+id/like"
-        android:text="10" />
+        tools:text="10" />
 
     <ImageButton
         android:id="@+id/share"
@@ -132,7 +132,7 @@
         app:layout_constraintStart_toEndOf="@+id/share"
         app:layout_constraintTop_toTopOf="@+id/likeCount"
         app:layout_constraintVertical_bias="1.0"
-        android:text="5" />
+        tools:text="5" />
 
     <ImageView
         android:id="@+id/view"
@@ -141,13 +141,13 @@
         android:layout_marginEnd="@dimen/common_spacing"
         android:contentDescription="@string/view_description"
         app:layout_constraintBottom_toBottomOf="@+id/share"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/viewCount"
         app:layout_constraintTop_toTopOf="@+id/share"
         app:layout_constraintVertical_bias="0.0"
         android:src="@drawable/ic_views_24" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/viewCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/common_spacing"
@@ -155,6 +155,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/shareCount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/shareCount"
-        android:text="12" />
+        tools:text="12" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
