@@ -14,26 +14,24 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val post = Post(
-            id = 0,
-            author = "Stas",
-            content = "Event",
-            published = "30.04.2022",
-            likedByMe = false,
-            likes = 999,
-            shares = 999
+            id = 1,
+            author = "Нетология. Университет интернет-профессий будущего",
+            content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb",
+            published = "21 мая в 18:36",
+            likedByMe = false
         )
 
         binding.render(post)
         binding.like.setOnClickListener {
             post.likedByMe = !post.likedByMe
-            val imageResId = if (post.likedByMe) R.drawable.ic_liked_24 else R.drawable.ic_like_24
             binding.like.setImageResource(getLikeIconResId(post.likedByMe))
             if (post.likedByMe) ++post.likes else --post.likes
-
+            binding.likeCount.text = counter(post.likes)
         }
-        binding.shareCount.setOnClickListener{
-            ++post.shares
 
+        binding.share.setOnClickListener {
+            ++post.shares
+            binding.shareCount.text = counter(post.shares)
         }
     }
 
@@ -41,7 +39,9 @@ class MainActivity : AppCompatActivity() {
         author.text = post.author
         content.text = post.content
         published.text = post.published
-        like?.setImageResource(getLikeIconResId(post.likedByMe))
+        likeCount.text = post.likes.toString()
+        shareCount.text = post.shares.toString()
+        like.setImageResource(getLikeIconResId(post.likedByMe))
 
     }
 
