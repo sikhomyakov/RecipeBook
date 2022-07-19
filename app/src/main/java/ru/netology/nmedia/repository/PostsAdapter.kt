@@ -1,5 +1,6 @@
 package ru.netology.nmedia.repository
 
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.DrawableRes
@@ -17,6 +18,14 @@ internal class PostsAdapter(
 
     inner class ViewHolder(private val binding: PostBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        private lateinit var post: Post
+
+        init {
+            binding.like.setOnClickListener { onLikeClicked(post) }
+
+        }
+
         fun bind(post: Post) = with(binding) {
             author.text = post.author
             content.text = post.content
@@ -29,6 +38,7 @@ internal class PostsAdapter(
         private fun getLikeIconResId(liked: Boolean) =
             if (liked) R.drawable.ic_liked_24 else R.drawable.ic_like_24
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -49,5 +59,7 @@ internal class PostsAdapter(
             oldItem == newItem
 
     }
+
+
 
 }
