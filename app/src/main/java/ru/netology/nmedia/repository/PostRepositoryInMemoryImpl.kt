@@ -11,7 +11,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
         }
 
     override val data = MutableLiveData(
-        List(10) { index ->
+        List(100) { index ->
             Post(
                 id = index + 1L,
                 author = "Нетология. Университет интернет-профессий будущего",
