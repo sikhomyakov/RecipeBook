@@ -16,10 +16,8 @@ class MainActivity : AppCompatActivity() {
         val adapter = PostsAdapter(viewModel::like)
         binding.postsRecyclerView.adapter = adapter
         viewModel.data.observe(this) { posts ->
-            adapter.posts = posts
+            adapter.submitList(posts)
         }
-
     }
-
 }
 
