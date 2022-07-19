@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import ru.netology.nmedia.dto.Post
 
 interface PostRepository {
-    fun get(): LiveData<Post>
-    fun like()
-    fun share()
+    val data: LiveData<List<Post>>
+    fun like(postId: Long)
+    fun share(postId: Long)
     fun counter(count: Int): String
 }
