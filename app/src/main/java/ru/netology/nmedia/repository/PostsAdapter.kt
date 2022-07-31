@@ -17,7 +17,7 @@ interface OnItemClickListener {
     fun onView(post: Post) {}
 }
 internal class PostsAdapter(
-    private val onLikeClicked: OnItemClickListener
+    private val onItemClickListener: OnItemClickListener
 ) : ListAdapter<Post, PostsAdapter.ViewHolder>(DiffCallback) {
 
     inner class ViewHolder(private val binding: PostBinding) :
@@ -39,13 +39,13 @@ internal class PostsAdapter(
                 }
             )
             like.setOnClickListener {
-                onLikeClicked.onLike(post)
+                onItemClickListener.onLike(post)
             }
             share.setOnClickListener {
-                onLikeClicked.onShare(post)
+                onItemClickListener.onShare(post)
             }
             view.setOnClickListener {
-                onLikeClicked.onView(post)
+                onItemClickListener.onView(post)
             }
         }
 
