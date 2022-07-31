@@ -1,42 +1,55 @@
 package ru.netology.nmedia.repository
 
-
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.DrawableRes
+
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.PostBinding
 import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.dto.Utils
 
-
+interface OnItemClickListener {
+    fun onLike(post: Post) {}
+    fun onShare(post: Post) {}
+    fun onView(post: Post) {}
+}
 internal class PostsAdapter(
-    private val onLikeClicked: (Post) -> Unit
+    private val onLikeClicked: OnItemClickListener
 ) : ListAdapter<Post, PostsAdapter.ViewHolder>(DiffCallback) {
 
     inner class ViewHolder(private val binding: PostBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private lateinit var post: Post
-
-        init {
-            binding.like.setOnClickListener { onLikeClicked(post) }
-
-        }
 
         fun bind(post: Post) = with(binding) {
             author.text = post.author
-            content.text = post.content
             published.text = post.published
-            like.setImageResource(getLikeIconResId(post.likedByMe))
-            like.setOnClickListener { onLikeClicked(post) }
+            content.text = post.content
+            likeCount.text = Utils.counter(post.likes)
+            shareCount.text = Utils.counter(post.shares)
+            viewCount.text = Utils.counter(post.views)
+            like.setImageResource(
+                if (post.likedByMe) {
+                    R.drawable.ic_liked_24
+                } else {
+                    R.drawable.ic_like_24
+                }
+            )
+            like.setOnClickListener {
+                onLikeClicked.onLike(post)
+            }
+            share.setOnClickListener {
+                onLikeClicked.onShare(post)
+            }
+            view.setOnClickListener {
+                onLikeClicked.onView(post)
+            }
         }
 
-        @DrawableRes
-        private fun getLikeIconResId(liked: Boolean) =
-            if (liked) R.drawable.ic_liked_24 else R.drawable.ic_like_24
+
     }
 
 
