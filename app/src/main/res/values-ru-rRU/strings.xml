@@ -10,7 +10,12 @@
     <string name="published">22 апреля в 22.22</string>
     <string name="author">Автор</string>
     <string name="content">Текст поста</string>
-    <string name="edit" >Редактировать</string>
-    <string name="remove" >Удалить</string>
+    <string name="edit">Редактировать</string>
+    <string name="remove">Удалить</string>
     <string name="menu_button">menu</string>
+    <string name="edit_image">Редактивание изображения</string>
+    <string name="undo_editing">Отмена редактирования</string>
+    <string name="enter_text">Ввод текста</string>
+    <string name="enter_confirmation">Подтвержение ввода</string>
+    <string name="error_empty_content">error empty content</string>
 </resources>

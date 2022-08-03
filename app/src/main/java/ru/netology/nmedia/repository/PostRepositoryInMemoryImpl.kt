@@ -1,16 +1,19 @@
 package ru.netology.nmedia.repository
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import ru.netology.nmedia.dto.*
+import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.dto.Utils
 
 class PostRepositoryInMemoryImpl : PostRepository {
 
+    private var nextId = 1L
     private val posts
         get() = checkNotNull(data.value) {
 
         }
 
-    override val data = MutableLiveData(
+    private val data = MutableLiveData(
         List(100) { index ->
             Post(
                 id = index + 1L,
@@ -27,18 +30,23 @@ class PostRepositoryInMemoryImpl : PostRepository {
         }
     )
 
-    override fun like(id: Long) {
+    override fun getAll(): LiveData<List<Post>> = data
+
+    override fun likeById(id: Long) {
         data.value = posts.map {
-            if (it.id != id) it
-            else
+            if (it.id != id) {
+                it
+            } else {
                 it.copy(
                     likedByMe = !it.likedByMe,
                     likes = if (it.likedByMe) it.likes - 1 else it.likes + 1
                 )
+            }
         }
+
     }
 
-    override fun share(id: Long) {
+    override fun toShareById(id: Long) {
         data.value = posts.map {
             if (it.id != id) {
                 it
@@ -48,11 +56,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
         }
     }
 
-    override fun delete(id: Long) {
-        data.value = posts.filter { it.id != id }
-    }
-
-    override fun view(id: Long) {
+    override fun toViewById(id: Long) {
         data.value = posts.map {
             if (it.id != id) {
                 it
@@ -60,11 +64,32 @@ class PostRepositoryInMemoryImpl : PostRepository {
                 it.copy(views = it.views + 1)
             }
         }
+
     }
 
-    override fun edit(id: Long) {
-        TODO("Not yet implemented")
+    override fun deleteById(id: Long) {
+        data.value = posts.filter { it.id != id }
+
     }
 
+    override fun addPost(post: Post) {
+        if (post.id == 0L) {
+            data.value = listOf(
+                post.copy(
+                    id = nextId++,
+                    author = "Test Author",
+                    published = Utils.addLocalDataTime(),
+                    likedByMe = false,
+                    likes = 0,
+                    shares = 0,
+                    views = 0
+                )
+            ) + posts
+        }
 
+        data.value = posts.map {
+            if (it.id != post.id) it else it.copy(content = post.content)
+        }
+
+    }
 }
