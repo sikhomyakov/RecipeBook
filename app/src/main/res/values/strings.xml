@@ -9,4 +9,6 @@
     <string name="view_description">View icon</string>
     <string name="author">Author</string>
     <string name="published">22 april at 22.22</string>
+    <string name="edit" >Edit</string>
+    <string name="remove" >Remove</string>
 </resources>

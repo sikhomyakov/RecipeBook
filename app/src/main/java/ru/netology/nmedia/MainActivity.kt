@@ -16,15 +16,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val adapter = PostsAdapter(object : OnItemClickListener {
-            override fun onLike(post: Post) {
-                viewModel.like(post.id)
+            override fun onLikeClicked(post: Post) {
+                viewModel.onLikeClicked(post.id)
             }
 
-            override fun onShare(post: Post) {
-                viewModel.share(post.id)
+            override fun onShareClicked(post: Post) {
+                viewModel.onShareClicked(post.id)
+            }
+
+            override fun onViewClicked(post: Post) {
+                viewModel.onViewClicked(post.id)
+            }
+
+            override fun onDeleteClicked(post: Post) {
+                viewModel.onDeleteClicked(post.id)
             }
         })
-
 
         binding.postsRecyclerView.adapter = adapter
         viewModel.data.observe(this) { posts ->

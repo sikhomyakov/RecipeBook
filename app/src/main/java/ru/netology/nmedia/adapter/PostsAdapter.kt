@@ -11,18 +11,33 @@ import ru.netology.nmedia.databinding.PostBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.dto.Utils
 
-interface OnItemClickListener {
-    fun onLike(post: Post) {}
-    fun onShare(post: Post) {}
-    fun onView(post: Post) {}
-}
+
 internal class PostsAdapter(
-    private val onItemClickListener: OnItemClickListener
+    private val interactionListener: OnItemClickListener
 ) : ListAdapter<Post, PostsAdapter.ViewHolder>(DiffCallback) {
 
-    inner class ViewHolder(private val binding: PostBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = PostBinding.inflate(inflater, parent, false)
+        return ViewHolder(binding, interactionListener)
+    }
 
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
+
+    class ViewHolder(
+        private val binding: PostBinding,
+        private val listener: OnItemClickListener
+    ) : RecyclerView.ViewHolder(binding.root) {
+
+        private lateinit var post: Post
+
+        init {
+            binding.like.setOnClickListener {listener.onLikeClicked(post)}
+            binding.share.setOnClickListener {listener.onShareClicked(post)}
+            binding.view.setOnClickListener {listener.onViewClicked(post)}
+        }
 
         fun bind(post: Post) = with(binding) {
             author.text = post.author
@@ -39,28 +54,15 @@ internal class PostsAdapter(
                 }
             )
             like.setOnClickListener {
-                onItemClickListener.onLike(post)
+                listener.onLikeClicked(post)
             }
             share.setOnClickListener {
-                onItemClickListener.onShare(post)
+                listener.onShareClicked(post)
             }
             view.setOnClickListener {
-                onItemClickListener.onView(post)
+                listener.onViewClicked(post)
             }
         }
-
-
-    }
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = PostBinding.inflate(inflater, parent, false)
-        return ViewHolder(binding)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
     }
 
     private object DiffCallback : DiffUtil.ItemCallback<Post>() {
@@ -72,7 +74,6 @@ internal class PostsAdapter(
             oldItem == newItem
 
     }
-
 
 
 }
