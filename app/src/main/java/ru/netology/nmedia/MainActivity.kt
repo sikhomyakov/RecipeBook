@@ -5,8 +5,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import ru.netology.nmedia.databinding.ActivityMainBinding
 import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.repository.OnItemClickListener
-import ru.netology.nmedia.repository.PostsAdapter
+import ru.netology.nmedia.adapter.*
 import ru.netology.nmedia.viewmodel.PostViewModel
 
 class MainActivity : AppCompatActivity() {
