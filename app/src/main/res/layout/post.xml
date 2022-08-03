@@ -66,6 +66,18 @@
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="avatar, published, options" />
 
+    <ImageButton
+        android:id="@+id/menu"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/menu_button"
+        app:srcCompat="@drawable/ic_more_vert_menu_24"
+        app:tint="#7A7777"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/ic_more_vert_menu_24" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/content"
         android:layout_width="match_parent"
@@ -77,6 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerBarrier"
         android:text="@string/content" />
+
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/footer"

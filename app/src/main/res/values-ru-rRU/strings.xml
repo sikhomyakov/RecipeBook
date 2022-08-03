@@ -12,4 +12,5 @@
     <string name="content">Текст поста</string>
     <string name="edit" >Редактировать</string>
     <string name="remove" >Удалить</string>
+    <string name="menu_button">menu</string>
 </resources>

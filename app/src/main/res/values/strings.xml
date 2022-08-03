@@ -11,4 +11,5 @@
     <string name="published">22 april at 22.22</string>
     <string name="edit" >Edit</string>
     <string name="remove" >Remove</string>
+    <string name="menu_button">menu</string>
 </resources>

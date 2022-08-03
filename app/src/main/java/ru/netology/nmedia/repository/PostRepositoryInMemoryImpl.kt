@@ -27,9 +27,9 @@ class PostRepositoryInMemoryImpl : PostRepository {
         }
     )
 
-    override fun like(postId: Long) {
+    override fun like(id: Long) {
         data.value = posts.map {
-            if (it.id != postId) it
+            if (it.id != id) it
             else
                 it.copy(
                     likedByMe = !it.likedByMe,
@@ -38,9 +38,9 @@ class PostRepositoryInMemoryImpl : PostRepository {
         }
     }
 
-    override fun share(postId: Long) {
+    override fun share(id: Long) {
         data.value = posts.map {
-            if (it.id != postId) {
+            if (it.id != id) {
                 it
             } else {
                 it.copy(shares = it.shares + 1)
@@ -48,18 +48,22 @@ class PostRepositoryInMemoryImpl : PostRepository {
         }
     }
 
-    override fun delete(postId: Long) {
-        data.value = posts.filter { it.id != postId }
-            }
+    override fun delete(id: Long) {
+        data.value = posts.filter { it.id != id }
+    }
 
-    override fun view(postId: Long) {
+    override fun view(id: Long) {
         data.value = posts.map {
-            if (it.id != postId) {
+            if (it.id != id) {
                 it
             } else {
                 it.copy(views = it.views + 1)
             }
         }
+    }
+
+    override fun edit(id: Long) {
+        TODO("Not yet implemented")
     }
 
 

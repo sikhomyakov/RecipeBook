@@ -15,23 +15,7 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter = PostsAdapter(object : OnItemClickListener {
-            override fun onLikeClicked(post: Post) {
-                viewModel.onLikeClicked(post.id)
-            }
-
-            override fun onShareClicked(post: Post) {
-                viewModel.onShareClicked(post.id)
-            }
-
-            override fun onViewClicked(post: Post) {
-                viewModel.onViewClicked(post.id)
-            }
-
-            override fun onDeleteClicked(post: Post) {
-                viewModel.onDeleteClicked(post.id)
-            }
-        })
+        val adapter = PostsAdapter(viewModel)
 
         binding.postsRecyclerView.adapter = adapter
         viewModel.data.observe(this) { posts ->

@@ -2,6 +2,7 @@ package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.PopupMenu
 
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -13,7 +14,7 @@ import ru.netology.nmedia.dto.Utils
 
 
 internal class PostsAdapter(
-    private val interactionListener: OnItemClickListener
+    private val interactionListener: PostInteractionListener
 ) : ListAdapter<Post, PostsAdapter.ViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -28,15 +29,35 @@ internal class PostsAdapter(
 
     class ViewHolder(
         private val binding: PostBinding,
-        private val listener: OnItemClickListener
+        private val listener: PostInteractionListener
     ) : RecyclerView.ViewHolder(binding.root) {
 
         private lateinit var post: Post
 
+        private val popupMenu by lazy {
+            PopupMenu(itemView.context, binding.menu).apply {
+                inflate(R.menu.options_post)
+                setOnMenuItemClickListener { menuItem ->
+                    when (menuItem.itemId) {
+                        R.id.remove -> {
+                            listener.onDeleteClicked(post.id)
+                            true
+                        }
+                        R.id.edit -> {
+                            listener.onEditClicked(post.id)
+                            true
+                        }
+                        else -> false
+                    }
+                }
+
+            }
+        }
+
         init {
-            binding.like.setOnClickListener {listener.onLikeClicked(post)}
-            binding.share.setOnClickListener {listener.onShareClicked(post)}
-            binding.view.setOnClickListener {listener.onViewClicked(post)}
+            binding.like.setOnClickListener { listener.onLikeClicked(post.id) }
+            binding.share.setOnClickListener { listener.onShareClicked(post.id) }
+            binding.view.setOnClickListener { listener.onViewClicked(post.id) }
         }
 
         fun bind(post: Post) = with(binding) {
@@ -53,17 +74,10 @@ internal class PostsAdapter(
                     R.drawable.ic_like_24
                 }
             )
-            like.setOnClickListener {
-                listener.onLikeClicked(post)
-            }
-            share.setOnClickListener {
-                listener.onShareClicked(post)
-            }
-            view.setOnClickListener {
-                listener.onViewClicked(post)
-            }
+            menu.setOnClickListener{popupMenu.show()}
         }
     }
+
 
     private object DiffCallback : DiffUtil.ItemCallback<Post>() {
         override fun areItemsTheSame(oldItem: Post, newItem: Post) =
