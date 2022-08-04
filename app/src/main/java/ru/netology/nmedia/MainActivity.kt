@@ -47,10 +47,11 @@ class MainActivity : AppCompatActivity() {
                 viewModel.cancelEdit()
             }
         })
+
         binding.posts.adapter = adapter
-        viewModel.data.observe(this) { posts ->
+        viewModel.data.observe(this, { posts ->
             adapter.submitList(posts)
-        }
+        })
         viewModel.edited.observe(this) {
             if (it.id == 0L) {
                 return@observe
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
                 setText(it.content)
             }
         }
+
         binding.confirmationButton.setOnClickListener {
             with(binding.inputTextArea) {
                 if (TextUtils.isEmpty(text)) {
