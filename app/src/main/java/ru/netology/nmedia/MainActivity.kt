@@ -42,10 +42,6 @@ class MainActivity : AppCompatActivity() {
             override fun onEditClicked(post: Post) {
                 viewModel.edit(post)
             }
-
-            override fun onCancelEdit(post: Post) {
-                viewModel.cancelEdit()
-            }
         })
 
         binding.posts.adapter = adapter

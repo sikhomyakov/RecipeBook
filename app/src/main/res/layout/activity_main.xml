@@ -61,7 +61,7 @@
         android:contentDescription="@string/undo_editing"
         app:layout_constraintEnd_toEndOf="@+id/confirmationButton"
         app:layout_constraintTop_toTopOf="@id/postUndo"
-        app:srcCompat="@drawable/baseline_close_black_24dp" />
+        app:srcCompat="@drawable/ic_outline_close_24" />
 
     <TextView
         android:id="@+id/postUndo"
@@ -85,7 +85,7 @@
         android:contentDescription="@string/edit_image"
         app:layout_constraintTop_toTopOf="@id/postUndo"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/baseline_edit_color_black_24dp" />
+        app:srcCompat="@drawable/ic_baseline_edit_24" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group"

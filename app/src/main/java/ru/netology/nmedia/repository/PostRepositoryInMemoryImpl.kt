@@ -91,7 +91,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
         data.value = posts
     }
 
-    override fun toShareById(id: Long) {
+    override fun shareById(id: Long) {
         posts = posts.map {
             if (it.id != id) {
                 it
@@ -102,7 +102,7 @@ class PostRepositoryInMemoryImpl : PostRepository {
         data.value = posts
     }
 
-    override fun toViewById(id: Long) {
+    override fun viewById(id: Long) {
         posts = posts.map {
             if (it.id != id) {
                 it
