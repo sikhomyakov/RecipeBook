@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Widget.AppTheme.LikeButton" parent="Widget.MaterialComponents.Button.TextButton.Icon">
-        <item name="iconTint">@color/colorRed</item>
+        <item name="iconTint">@color/selector_like_color</item>
         <item name="android:minWidth">@dimen/default_icon_size</item>
         <item name="android:minHeight">@dimen/default_icon_size</item>
     </style>
