@@ -37,16 +37,10 @@ class ViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
-            likeCount.text = Utils.counter(post.likes)
-            shareCount.text = Utils.counter(post.shares)
-            viewCount.text = Utils.counter(post.views)
-            like.setImageResource(
-                if (post.likedByMe) {
-                    R.drawable.ic_liked_24
-                } else {
-                    R.drawable.ic_like_24
-                }
-            )
+            likeButton.text = Utils.counter(post.likes)
+            shareButton.text = Utils.counter(post.shares)
+            viewsButton.text = Utils.counter(post.views)
+            likeButton.isChecked = post.likedByMe
 
             menu.setOnClickListener { it ->
                 PopupMenu(it.context, it).apply {
@@ -66,13 +60,13 @@ class ViewHolder(
                     }
                 }.show()
             }
-            like.setOnClickListener {
+            likeButton.setOnClickListener {
                 listener.onLikeClicked(post)
             }
-            share.setOnClickListener {
+            shareButton.setOnClickListener {
                 listener.onShareClicked(post)
             }
-            view.setOnClickListener {
+            viewsButton.setOnClickListener {
                 listener.onViewClicked(post)
             }
         }
