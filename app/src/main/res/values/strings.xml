@@ -23,4 +23,6 @@
     <string name="chooser_share_post">Post to share</string>
     <string name="description_post_save">Post save</string>
     <string name="add_post" />
+    <string name="video_content">video content</string>
+    <string name="play_video">play video</string>
 </resources>

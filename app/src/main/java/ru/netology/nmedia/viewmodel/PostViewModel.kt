@@ -39,17 +39,7 @@ class PostViewModel : ViewModel() {
         edited.value = edited.value?.copy(content = text)
     }
 
-//    val shareEvent = SingleLiveEvent<Post>(
-//    )
 
     fun likeById(id: Long) = repository.likeById(id)
-    fun toViewById(id: Long) = repository.viewById(id)
     fun deleteById(id: Long) = repository.deleteById(id)
-//    fun shareById(post: Post) {
-//        repository.shareById(post.id)
-//        shareEvent.value = post
-//    }
-//
-//    fun onCreateNewPost(newPostContent: String){
-
 }

@@ -1,6 +1,7 @@
 package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
@@ -60,14 +61,23 @@ class ViewHolder(
                     }
                 }.show()
             }
+            if (post.video != null) videoGroup.visibility = View.VISIBLE
+            else videoGroup.visibility = View.GONE
+
+            video.setOnClickListener {
+                listener.onVideoClicked(post)
+            }
+
+            play.setOnClickListener {
+                listener.onVideoClicked(post)
+            }
+
             likeButton.setOnClickListener {
                 listener.onLikeClicked(post)
             }
+
             shareButton.setOnClickListener {
                 listener.onShareClicked(post)
-            }
-            viewsButton.setOnClickListener {
-                listener.onViewClicked(post)
             }
         }
     }

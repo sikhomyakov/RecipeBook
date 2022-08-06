@@ -1,6 +1,7 @@
 package ru.netology.nmedia.activity
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,11 @@ class MainActivity : AppCompatActivity() {
             viewModel.save()
         }
         val adapter = PostsAdapter(object : PostInteractionListener {
+            override fun onVideoClicked(post: Post) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(post.video))
+                startActivity(intent)
+            }
+
             override fun onLikeClicked(post: Post) {
                 viewModel.likeById(post.id)
             }
@@ -43,9 +49,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(shareIntent)
             }
 
-            override fun onViewClicked(post: Post) {
-                viewModel.toViewById(post.id)
-            }
 
             override fun onRemoveClicked(post: Post) {
                 viewModel.deleteById(post.id)
