@@ -68,13 +68,6 @@ class MainActivity : AppCompatActivity() {
             postLauncher.launch(null)
         }
 
-//        val activityLauncher = registerForActivityResult(
-//            NewPostActivity.ResultContract
-//        ) { postContent: String? ->
-//            postContent?.let(viewModel::onCreateNewPost)
-//        }
-//        activityLauncher.launch(Unit)
-
     }
 }
 
