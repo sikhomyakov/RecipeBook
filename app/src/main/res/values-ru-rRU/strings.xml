@@ -21,4 +21,5 @@
     <string name="number_of_likes">Число лайков</string>
     <string name="number_of_share">Число репостов</string>
     <string name="number_of_views">Число просмотров</string>
+    <string name="chooser_share_post">Поделиться постом</string>
 </resources>

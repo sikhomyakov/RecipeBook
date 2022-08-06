@@ -1,5 +1,6 @@
 package ru.netology.nmedia
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -28,7 +29,15 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onShareClicked(post: Post) {
-                viewModel.toShareById(post.id)
+                val intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, post.content)
+                    type = "text/plain"
+                }
+
+                val shareIntent =
+                    Intent.createChooser(intent, getString(R.string.chooser_share_post))
+                startActivity(shareIntent)
             }
 
             override fun onViewClicked(post: Post) {
@@ -45,9 +54,10 @@ class MainActivity : AppCompatActivity() {
         })
 
         binding.posts.adapter = adapter
-        viewModel.data.observe(this, { posts ->
+        viewModel.data.observe(this) { posts ->
             adapter.submitList(posts)
-        })
+        }
+
         viewModel.edited.observe(this) {
             if (it.id == 0L) {
                 return@observe
