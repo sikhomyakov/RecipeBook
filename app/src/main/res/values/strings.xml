@@ -21,4 +21,6 @@
     <string name="number_of_share">993</string>
     <string name="number_of_views">555</string>
     <string name="chooser_share_post">Post to share</string>
+    <string name="description_post_save">Post save</string>
+    <string name="add_post" />
 </resources>

@@ -22,4 +22,6 @@
     <string name="number_of_share">Число репостов</string>
     <string name="number_of_views">Число просмотров</string>
     <string name="chooser_share_post">Поделиться постом</string>
+    <string name="description_post_save">Сохранить пост</string>
+    <string name="add_post" />
 </resources>
