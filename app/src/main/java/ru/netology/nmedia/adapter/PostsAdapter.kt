@@ -42,7 +42,7 @@ class ViewHolder(
             viewsButton.text = Utils.counter(post.views)
             likeButton.isChecked = post.likedByMe
 
-            menu.setOnClickListener { it ->
+            menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.options_post)
                     setOnMenuItemClickListener { item ->
