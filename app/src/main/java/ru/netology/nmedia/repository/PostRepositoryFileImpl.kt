@@ -14,9 +14,9 @@ class PostRepositoryFileImpl(
     private val gson = Gson()
     private val type = TypeToken.getParameterized(List::class.java, Post::class.java).type
     private val filename = "posts.json"
-    private var nextId = 1L
     private var posts = emptyList<Post>()
     private val data = MutableLiveData(posts)
+    private var nextId = 1L
 
     init {
         val file = context.filesDir.resolve(filename)
@@ -24,7 +24,9 @@ class PostRepositoryFileImpl(
             context.openFileInput(filename).bufferedReader().use {
                 posts = gson.fromJson(it, type)
                 data.value = posts
+                nextId = if (posts.isEmpty()) 1 else (posts.first().id + 1)
             }
+
         } else sync()
     }
 
@@ -43,6 +45,7 @@ class PostRepositoryFileImpl(
                 )
             ) + posts
             data.value = posts
+            sync()
             return
         }
 
@@ -50,6 +53,7 @@ class PostRepositoryFileImpl(
             if (it.id != post.id) it else it.copy(content = post.content)
         }
         data.value = posts
+        sync()
     }
 
     override fun likeById(id: Long) {
