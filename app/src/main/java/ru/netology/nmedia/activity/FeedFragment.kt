@@ -15,7 +15,8 @@ import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.FragmentFeedBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.viewmodel.PostViewModel
-import ru.netology.nmedia.activity.PostFragment.Companion.textArg
+import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
+import ru.netology.nmedia.activity.PostFragment.Companion.longArg
 
 
 class FeedFragment : Fragment() {
@@ -38,6 +39,13 @@ class FeedFragment : Fragment() {
             override fun onVideoClicked(post: Post) {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(post.video))
                 startActivity(intent)
+            }
+
+            override fun onPostClicked(post: Post) {
+                findNavController().navigate(R.id.action_feedFragment_to_postFragment,
+                    Bundle().apply {
+                        longArg = post.id
+                    })
             }
 
             override fun onLikeClicked(post: Post) {
@@ -63,7 +71,7 @@ class FeedFragment : Fragment() {
 
             override fun onEditClicked(post: Post) {
                 viewModel.edit(post)
-                findNavController().navigate(R.id.action_feedFragment_to_postFragment, Bundle()
+                findNavController().navigate(R.id.action_feedFragment_to_newPostFragment, Bundle()
                     .apply {
                         textArg = post.content
                     })
@@ -75,7 +83,7 @@ class FeedFragment : Fragment() {
         }
 
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_feedFragment_to_postFragment)
+            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
         }
         return binding.root
     }
