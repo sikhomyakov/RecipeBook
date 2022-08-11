@@ -10,13 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.R
+import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
+import ru.netology.nmedia.activity.PostFragment.Companion.longArg
 import ru.netology.nmedia.adapter.PostInteractionListener
 import ru.netology.nmedia.adapter.PostsAdapter
 import ru.netology.nmedia.databinding.FragmentFeedBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.viewmodel.PostViewModel
-import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
-import ru.netology.nmedia.activity.PostFragment.Companion.longArg
 
 
 class FeedFragment : Fragment() {
@@ -53,6 +53,7 @@ class FeedFragment : Fragment() {
             }
 
             override fun onShareClicked(post: Post) {
+                viewModel.shareById(post.id)
                 val intent = Intent().apply {
                     action = Intent.ACTION_SEND
                     putExtra(Intent.EXTRA_TEXT, post.content)

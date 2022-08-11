@@ -67,6 +67,14 @@ class PostRepositoryFileImpl(
         sync()
     }
 
+    override fun shareById(id: Long) {
+        posts = posts.map {
+            if (it.id == id) it.copy(shares = it.shares + 1) else it
+        }
+        data.value = posts
+        sync()
+    }
+
     override fun deleteById(id: Long) {
         posts = posts.filter { it.id != id }
         data.value = posts

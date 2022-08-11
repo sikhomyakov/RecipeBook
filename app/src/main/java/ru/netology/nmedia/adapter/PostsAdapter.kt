@@ -64,6 +64,9 @@ class ViewHolder(
             if (post.video != null) videoGroup.visibility = View.VISIBLE
             else videoGroup.visibility = View.GONE
 
+            content.setOnClickListener {
+                listener.onPostClicked(post)
+            }
             video.setOnClickListener {
                 listener.onVideoClicked(post)
             }
