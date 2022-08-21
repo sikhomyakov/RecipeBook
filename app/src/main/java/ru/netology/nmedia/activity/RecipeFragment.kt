@@ -11,53 +11,53 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.R
-import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
-import ru.netology.nmedia.databinding.FragmentPostBinding
+import ru.netology.nmedia.activity.NewRecipeFragment.Companion.textArg
+import ru.netology.nmedia.databinding.FragmentRecipeBinding
 import ru.netology.nmedia.dto.LongArg
 import ru.netology.nmedia.dto.Utils
-import ru.netology.nmedia.viewmodel.PostViewModel
+import ru.netology.nmedia.viewmodel.RecipeViewModel
 
-class PostFragment : Fragment() {
+class RecipeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentPostBinding.inflate(
+        val binding = FragmentRecipeBinding.inflate(
             inflater,
             container,
             false
         )
-        val viewModel: PostViewModel by viewModels(ownerProducer = ::requireParentFragment)
-        with(binding.postLayout) {
-            viewModel.data.observe(viewLifecycleOwner) { posts ->
-                val post = posts.find { it.id == arguments?.longArg }
-                if (post != null) {
-                    author.text = post.author
-                    published.text = post.published
-                    content.text = post.content
-                    likeButton.isChecked = post.likedByMe
-                    likeButton.text = Utils.counter(post.likes)
-                    shareButton.text = Utils.counter(post.shares)
-                    viewsButton.text = Utils.counter(post.views)
+        val viewModel: RecipeViewModel by viewModels(ownerProducer = ::requireParentFragment)
+        with(binding.recipeLayout) {
+            viewModel.data.observe(viewLifecycleOwner) { recipes ->
+                val recipe = recipes.find { it.id == arguments?.longArg }
+                if (recipe != null) {
+                    author.text = recipe.author
+                    published.text = recipe.published
+                    content.text = recipe.content
+                    likeButton.isChecked = recipe.likedByMe
+                    likeButton.text = Utils.counter(recipe.likes)
+                    shareButton.text = Utils.counter(recipe.shares)
+                    favoriteButton.isChecked = recipe.favByMe
 
                     menu.setOnClickListener {
                         PopupMenu(it.context, it).apply {
-                            inflate(R.menu.options_post)
+                            inflate(R.menu.options_recipe)
                             setOnMenuItemClickListener { item ->
                                 when (item.itemId) {
                                     R.id.remove -> {
                                         findNavController().navigateUp()
-                                        viewModel.deleteById(post.id)
+                                        viewModel.deleteById(recipe.id)
                                         true
                                     }
                                     R.id.edit -> {
-                                        viewModel.edit(post)
+                                        viewModel.edit(recipe)
                                         findNavController().navigate(
-                                            R.id.action_postFragment_to_newPostFragment,
+                                            R.id.action_recipeFragment_to_newRecipeFragment,
                                             Bundle().apply
                                             {
-                                                textArg = post.content
+                                                textArg = recipe.content
                                             })
                                         true
                                     }
@@ -68,29 +68,29 @@ class PostFragment : Fragment() {
                         }.show()
                     }
 
-                    if (post.video != null) videoGroup.visibility = View.VISIBLE
+                    if (recipe.video != null) videoGroup.visibility = View.VISIBLE
                     else videoGroup.visibility = View.GONE
 
                     video.setOnClickListener {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(post.video))
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(recipe.video))
                         startActivity(intent)
                     }
 
                     play.setOnClickListener {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(post.video))
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(recipe.video))
                         startActivity(intent)
                     }
 
 
                     likeButton.setOnClickListener {
-                        viewModel.likeById(post.id)
+                        viewModel.likeById(recipe.id)
                     }
 
                     shareButton.setOnClickListener {
-                        viewModel.shareById(post.id)
+                        viewModel.shareById(recipe.id)
                         val intent = Intent().apply {
                             action = Intent.ACTION_SEND
-                            putExtra(Intent.EXTRA_TEXT, post.content)
+                            putExtra(Intent.EXTRA_TEXT, recipe.content)
                             type = "text/plain"
                         }
                         val shareIntent =

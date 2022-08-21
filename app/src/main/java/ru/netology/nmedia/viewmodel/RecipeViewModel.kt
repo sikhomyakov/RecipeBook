@@ -3,12 +3,12 @@ package ru.netology.nmedia.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.repository.PostRepository
-import ru.netology.nmedia.repository.PostRepositoryFileImpl
+import ru.netology.nmedia.dto.Recipe
+import ru.netology.nmedia.repository.RecipeRepository
+import ru.netology.nmedia.repository.RecipeRepositoryFileImpl
 
 
-private val empty = Post(
+private val empty = Recipe(
     id = 0,
     content = "",
     author = "",
@@ -16,9 +16,9 @@ private val empty = Post(
     published = ""
 )
 
-class PostViewModel(application: Application) : AndroidViewModel(application) {
+class RecipeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository: PostRepository = PostRepositoryFileImpl(application)
+    private val repository: RecipeRepository = RecipeRepositoryFileImpl(application)
     val data = repository.getAll()
     private val edited = MutableLiveData(empty)
     fun save() {
@@ -28,8 +28,8 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
         edited.value = empty
     }
 
-    fun edit(post: Post) {
-        edited.value = post
+    fun edit(recipe: Recipe) {
+        edited.value = recipe
     }
 
     fun changeContent(content: String) {
@@ -44,4 +44,5 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     fun likeById(id: Long) = repository.likeById(id)
     fun shareById(id: Long) = repository.shareById(id)
     fun deleteById(id: Long) = repository.deleteById(id)
+    fun favoriteById(id: Long) = repository.favoriteById(id)
 }

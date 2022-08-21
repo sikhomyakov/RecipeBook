@@ -10,13 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.nmedia.R
-import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
-import ru.netology.nmedia.activity.PostFragment.Companion.longArg
-import ru.netology.nmedia.adapter.PostInteractionListener
-import ru.netology.nmedia.adapter.PostsAdapter
+import ru.netology.nmedia.activity.NewRecipeFragment.Companion.textArg
+import ru.netology.nmedia.activity.RecipeFragment.Companion.longArg
+import ru.netology.nmedia.adapter.RecipeInteractionListener
+import ru.netology.nmedia.adapter.RecipeAdapter
 import ru.netology.nmedia.databinding.FragmentFeedBinding
-import ru.netology.nmedia.dto.Post
-import ru.netology.nmedia.viewmodel.PostViewModel
+import ru.netology.nmedia.dto.Recipe
+import ru.netology.nmedia.viewmodel.RecipeViewModel
 
 
 class FeedFragment : Fragment() {
@@ -32,31 +32,31 @@ class FeedFragment : Fragment() {
             false
         )
 
-        val viewModel by viewModels<PostViewModel>(ownerProducer = ::requireParentFragment)
+        val viewModel by viewModels<RecipeViewModel>(ownerProducer = ::requireParentFragment)
 
 
-        val adapter = PostsAdapter(object : PostInteractionListener {
-            override fun onVideoClicked(post: Post) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(post.video))
+        val adapter = RecipeAdapter(object : RecipeInteractionListener {
+            override fun onVideoClicked(recipe: Recipe) {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(recipe.video))
                 startActivity(intent)
             }
 
-            override fun onPostClicked(post: Post) {
-                findNavController().navigate(R.id.action_feedFragment_to_postFragment,
+            override fun onRecipeClicked(recipe: Recipe) {
+                findNavController().navigate(R.id.action_feedFragment_to_recipeFragment,
                     Bundle().apply {
-                        longArg = post.id
+                        longArg = recipe.id
                     })
             }
 
-            override fun onLikeClicked(post: Post) {
-                viewModel.likeById(post.id)
+            override fun onLikeClicked(recipe: Recipe) {
+                viewModel.likeById(recipe.id)
             }
 
-            override fun onShareClicked(post: Post) {
-                viewModel.shareById(post.id)
+            override fun onShareClicked(recipe: Recipe) {
+                viewModel.shareById(recipe.id)
                 val intent = Intent().apply {
                     action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, post.content)
+                    putExtra(Intent.EXTRA_TEXT, recipe.content)
                     type = "text/plain"
                 }
 
@@ -66,25 +66,29 @@ class FeedFragment : Fragment() {
             }
 
 
-            override fun onRemoveClicked(post: Post) {
-                viewModel.deleteById(post.id)
+            override fun onRemoveClicked(recipe: Recipe) {
+                viewModel.deleteById(recipe.id)
             }
 
-            override fun onEditClicked(post: Post) {
-                viewModel.edit(post)
-                findNavController().navigate(R.id.action_feedFragment_to_newPostFragment, Bundle()
+            override fun onFavoriteClicked(recipe: Recipe) {
+                    viewModel.favoriteById(recipe.id)
+            }
+
+            override fun onEditClicked(recipe: Recipe) {
+                viewModel.edit(recipe)
+                findNavController().navigate(R.id.action_feedFragment_to_newRecipeFragment, Bundle()
                     .apply {
-                        textArg = post.content
+                        textArg = recipe.content
                     })
             }
         })
         binding.list.adapter = adapter
-        viewModel.data.observe(viewLifecycleOwner) { posts ->
-            adapter.submitList(posts)
+        viewModel.data.observe(viewLifecycleOwner) { recipes ->
+            adapter.submitList(recipes)
         }
 
         binding.fab.setOnClickListener {
-            findNavController().navigate(R.id.action_feedFragment_to_newPostFragment)
+            findNavController().navigate(R.id.action_feedFragment_to_newRecipeFragment)
         }
         return binding.root
     }

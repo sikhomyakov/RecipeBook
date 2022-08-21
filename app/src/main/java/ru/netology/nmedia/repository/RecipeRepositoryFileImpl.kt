@@ -5,85 +5,95 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.dto.Recipe
 import ru.netology.nmedia.dto.Utils
 
-class PostRepositoryFileImpl(
+class RecipeRepositoryFileImpl(
     private val context: Context
-) : PostRepository {
+) : RecipeRepository {
     private val gson = Gson()
-    private val type = TypeToken.getParameterized(List::class.java, Post::class.java).type
-    private val filename = "posts.json"
-    private var posts = emptyList<Post>()
-    private val data = MutableLiveData(posts)
+    private val type = TypeToken.getParameterized(List::class.java, Recipe::class.java).type
+    private val filename = "recipes.json"
+    private var recipes = emptyList<Recipe>()
+    private val data = MutableLiveData(recipes)
     private var nextId = 1L
 
     init {
         val file = context.filesDir.resolve(filename)
         if (file.exists()) {
             context.openFileInput(filename).bufferedReader().use {
-                posts = gson.fromJson(it, type)
-                data.value = posts
-                nextId = if (posts.isEmpty()) 1 else (posts.first().id + 1)
+                recipes = gson.fromJson(it, type)
+                data.value = recipes
+                nextId = if (recipes.isEmpty()) 1 else (recipes.first().id + 1)
             }
 
         } else sync()
     }
 
 
-    override fun getAll(): LiveData<List<Post>> = data
+    override fun getAll(): LiveData<List<Recipe>> = data
 
-    override fun save(post: Post) {
-        if (post.id == 0L) {
+    override fun save(recipe: Recipe) {
+        if (recipe.id == 0L) {
 
-            posts = listOf(
-                post.copy(
+            recipes = listOf(
+                recipe.copy(
                     id = nextId++,
                     author = "Me",
                     likedByMe = false,
                     published = Utils.addLocalDataTime()
                 )
-            ) + posts
-            data.value = posts
+            ) + recipes
+            data.value = recipes
             sync()
             return
         }
 
-        posts = posts.map {
-            if (it.id != post.id) it else it.copy(content = post.content)
+        recipes = recipes.map {
+            if (it.id != recipe.id) it else it.copy(content = recipe.content)
         }
-        data.value = posts
+        data.value = recipes
         sync()
     }
 
     override fun likeById(id: Long) {
-        posts = posts.map {
+        recipes = recipes.map {
             if (it.id != id) it else it.copy(
                 likedByMe = !it.likedByMe,
                 likes = if (it.likedByMe) it.likes - 1 else it.likes + 1
             )
         }
-        data.value = posts
+        data.value = recipes
         sync()
     }
 
     override fun shareById(id: Long) {
-        posts = posts.map {
+        recipes = recipes.map {
             if (it.id == id) it.copy(shares = it.shares + 1) else it
         }
-        data.value = posts
+        data.value = recipes
         sync()
     }
 
     override fun deleteById(id: Long) {
-        posts = posts.filter { it.id != id }
-        data.value = posts
+        recipes = recipes.filter { it.id != id }
+        data.value = recipes
         sync()
     }
 
+    override fun favoriteById(id: Long) {
+        recipes = recipes.map {
+            if (it.id != id) it else it.copy(
+                favByMe = !it.favByMe
+            )
+        }
+        data.value = recipes
+        sync()
+        }
+
     private fun sync() {
         context.openFileOutput(filename, Context.MODE_PRIVATE).bufferedWriter().use {
-            it.write(gson.toJson(posts))
+            it.write(gson.toJson(recipes))
         }
     }
 }

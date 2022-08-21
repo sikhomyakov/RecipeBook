@@ -8,18 +8,18 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ru.netology.nmedia.R
-import ru.netology.nmedia.databinding.PostBinding
-import ru.netology.nmedia.dto.Post
+import ru.netology.nmedia.databinding.RecipeBinding
+import ru.netology.nmedia.dto.Recipe
 import ru.netology.nmedia.dto.Utils
 
 
-internal class PostsAdapter(
-    private val interactionListener: PostInteractionListener
-) : ListAdapter<Post, ViewHolder>(DiffCallback()) {
+internal class RecipeAdapter(
+    private val interactionListener: RecipeInteractionListener
+) : ListAdapter<Recipe, ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = PostBinding.inflate(inflater, parent, false)
+        val binding = RecipeBinding.inflate(inflater, parent, false)
         return ViewHolder(binding, interactionListener)
     }
 
@@ -29,31 +29,31 @@ internal class PostsAdapter(
 }
 
 class ViewHolder(
-    private val binding: PostBinding,
-    private val listener: PostInteractionListener
+    private val binding: RecipeBinding,
+    private val listener: RecipeInteractionListener
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(post: Post) {
+    fun bind(recipe: Recipe) {
         binding.apply {
-            author.text = post.author
-            published.text = post.published
-            content.text = post.content
-            likeButton.text = Utils.counter(post.likes)
-            shareButton.text = Utils.counter(post.shares)
-            viewsButton.text = Utils.counter(post.views)
-            likeButton.isChecked = post.likedByMe
+            author.text = recipe.author
+            published.text = recipe.published
+            content.text = recipe.content
+            likeButton.text = Utils.counter(recipe.likes)
+            shareButton.text = Utils.counter(recipe.shares)
+            likeButton.isChecked = recipe.likedByMe
+            favoriteButton.isChecked = recipe.favByMe
 
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
-                    inflate(R.menu.options_post)
+                    inflate(R.menu.options_recipe)
                     setOnMenuItemClickListener { item ->
                         when (item.itemId) {
                             R.id.remove -> {
-                                listener.onRemoveClicked(post)
+                                listener.onRemoveClicked(recipe)
                                 true
                             }
                             R.id.edit -> {
-                                listener.onEditClicked(post)
+                                listener.onEditClicked(recipe)
                                 true
                             }
                             else -> false
@@ -61,38 +61,41 @@ class ViewHolder(
                     }
                 }.show()
             }
-            if (post.video != null) videoGroup.visibility = View.VISIBLE
+            if (recipe.video != null) videoGroup.visibility = View.VISIBLE
             else videoGroup.visibility = View.GONE
 
             content.setOnClickListener {
-                listener.onPostClicked(post)
+                listener.onRecipeClicked(recipe)
             }
             video.setOnClickListener {
-                listener.onVideoClicked(post)
+                listener.onVideoClicked(recipe)
             }
 
             play.setOnClickListener {
-                listener.onVideoClicked(post)
+                listener.onVideoClicked(recipe)
             }
 
             likeButton.setOnClickListener {
-                listener.onLikeClicked(post)
+                listener.onLikeClicked(recipe)
             }
 
             shareButton.setOnClickListener {
-                listener.onShareClicked(post)
+                listener.onShareClicked(recipe)
+            }
+            favoriteButton.setOnClickListener {
+                listener.onFavoriteClicked(recipe)
             }
         }
     }
 }
 
 
-class DiffCallback : DiffUtil.ItemCallback<Post>() {
-    override fun areItemsTheSame(oldItem: Post, newItem: Post) =
+class DiffCallback : DiffUtil.ItemCallback<Recipe>() {
+    override fun areItemsTheSame(oldItem: Recipe, newItem: Recipe) =
         oldItem.id == newItem.id
 
 
-    override fun areContentsTheSame(oldItem: Post, newItem: Post) =
+    override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe) =
         oldItem == newItem
 
 }

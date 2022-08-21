@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">НМедиа</string>
-    <string name="Hello">НМедиа!</string>
+    <string name="app_name">Книга рецептов</string>
+    <string name="Hello">Добро пожаловать в Книгу рецептов</string>
     <string name="avatar_description">Аватар автора</string>
     <string name="options_description">Кнопка опций</string>
     <string name="like_description">Кнопка Лайк</string>

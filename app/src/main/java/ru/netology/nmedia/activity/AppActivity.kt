@@ -8,7 +8,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.ActivityAppBinding
-import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
+import ru.netology.nmedia.activity.NewRecipeFragment.Companion.textArg
 
 class AppActivity : AppCompatActivity() {
 
@@ -47,7 +47,7 @@ class AppActivity : AppCompatActivity() {
             }
             val fragment =
                 supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-            fragment.navController.navigate(R.id.action_feedFragment_to_postFragment, Bundle()
+            fragment.navController.navigate(R.id.action_feedFragment_to_recipeFragment, Bundle()
                 .apply {
                     textArg = text
                 })

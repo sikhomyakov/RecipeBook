@@ -144,20 +144,23 @@
             app:layout_constraintStart_toEndOf="@id/likeButton"
             app:layout_constraintTop_toTopOf="@id/likeButton" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/viewsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:scaleType="fitEnd"
-            android:text="@string/number_of_views"
-            android:textAppearance="@style/TextStyle"
-            android:textColor="@color/colorAccent"
-            app:icon="@drawable/ic_views_24"
-            app:iconTint="@color/colorAccent"
-            app:layout_constraintBottom_toBottomOf="@+id/shareButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/shareButton" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/favoriteButton"
+        style="@style/AppCheckableButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:layout_marginBottom="@dimen/common_spacing"
+        android:background="@android:color/transparent"
+        android:checkable="true"
+        android:textAppearance="@style/TextStyle"
+        android:textColor="@color/black"
+        app:icon="@drawable/ic_bookmark_24dp"
+        app:iconTint="@color/selector_bookmark_color"
+        app:layout_constraintBottom_toBottomOf="@+id/shareButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/shareButton" />
 
 
         <androidx.constraintlayout.widget.Barrier
