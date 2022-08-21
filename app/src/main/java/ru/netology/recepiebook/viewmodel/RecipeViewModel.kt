@@ -20,7 +20,7 @@ private val empty = Recipe(
 class RecipeViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: RecipeRepository =
-        RecipeRepositorySQLiteImpl(AppDb.getInstance(application).postDao)
+        RecipeRepositorySQLiteImpl(AppDb.getInstance(application).recipeDao)
     val data = repository.getAll()
     private val edited = MutableLiveData(empty)
     fun save() {

@@ -7,7 +7,7 @@ import ru.netology.recepiebook.dao.RecipeDao
 import ru.netology.recepiebook.dao.RecipeDaoImpl
 
 class AppDb private constructor(db: SQLiteDatabase) {
-    val postDao: RecipeDao = RecipeDaoImpl(db)
+    val recipeDao: RecipeDao = RecipeDaoImpl(db)
 
     companion object {
         @Volatile

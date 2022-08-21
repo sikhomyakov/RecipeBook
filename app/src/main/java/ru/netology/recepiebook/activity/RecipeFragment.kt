@@ -85,6 +85,10 @@ class RecipeFragment : Fragment() {
                         viewModel.likeById(recipe.id)
                     }
 
+                    favoriteButton.setOnClickListener {
+                        viewModel.favoriteById(recipe.id)
+                    }
+
                     shareButton.setOnClickListener {
                         viewModel.shareById(recipe.id)
                         val intent = Intent().apply {

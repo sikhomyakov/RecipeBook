@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.recepiebook.databinding.FragmentNewRecipeBinding
+
 import ru.netology.recepiebook.dto.Utils
 
 import ru.netology.recepiebook.viewmodel.RecipeViewModel
