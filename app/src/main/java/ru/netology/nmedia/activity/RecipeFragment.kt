@@ -39,7 +39,7 @@ class RecipeFragment : Fragment() {
                     likeButton.isChecked = recipe.likedByMe
                     likeButton.text = Utils.counter(recipe.likes)
                     shareButton.text = Utils.counter(recipe.shares)
-                    favoriteButton.isChecked = recipe.favByMe
+                    favoriteButton.isChecked = recipe.favoriteByMe
 
                     menu.setOnClickListener {
                         PopupMenu(it.context, it).apply {

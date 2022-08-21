@@ -8,6 +8,6 @@ data class Recipe(
     var likedByMe: Boolean = false,
     var likes: Int = 0,
     var shares: Int = 0,
-    var favByMe: Boolean = false,
+    var favoriteByMe: Boolean = false,
     val video: String? = null
 )

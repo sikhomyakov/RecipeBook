@@ -84,7 +84,7 @@ class RecipeRepositoryFileImpl(
     override fun favoriteById(id: Long) {
         recipes = recipes.map {
             if (it.id != id) it else it.copy(
-                favByMe = !it.favByMe
+                favoriteByMe = !it.favoriteByMe
             )
         }
         data.value = recipes

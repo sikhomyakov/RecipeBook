@@ -41,7 +41,7 @@ class ViewHolder(
             likeButton.text = Utils.counter(recipe.likes)
             shareButton.text = Utils.counter(recipe.shares)
             likeButton.isChecked = recipe.likedByMe
-            favoriteButton.isChecked = recipe.favByMe
+            favoriteButton.isChecked = recipe.favoriteByMe
 
             menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
