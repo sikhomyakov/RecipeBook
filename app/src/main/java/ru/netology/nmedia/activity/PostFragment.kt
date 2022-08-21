@@ -47,7 +47,7 @@ class PostFragment : Fragment() {
                             setOnMenuItemClickListener { item ->
                                 when (item.itemId) {
                                     R.id.remove -> {
-                                        findNavController().navigate(R.id.action_postFragment_to_feedFragment)
+                                        findNavController().navigateUp()
                                         viewModel.deleteById(post.id)
                                         true
                                     }
