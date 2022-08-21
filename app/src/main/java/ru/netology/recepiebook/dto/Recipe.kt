@@ -1,4 +1,4 @@
-package ru.netology.nmedia.dto
+package ru.netology.recepiebook.dto
 
 data class Recipe(
     val id: Long,

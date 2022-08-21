@@ -1,4 +1,4 @@
-package ru.netology.nmedia.activity
+package ru.netology.recepiebook.activity
 
 import android.content.Intent
 import android.net.Uri
@@ -10,12 +10,11 @@ import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import ru.netology.nmedia.R
-import ru.netology.nmedia.activity.NewRecipeFragment.Companion.textArg
-import ru.netology.nmedia.databinding.FragmentRecipeBinding
-import ru.netology.nmedia.dto.LongArg
-import ru.netology.nmedia.dto.Utils
-import ru.netology.nmedia.viewmodel.RecipeViewModel
+import ru.netology.recepiebook.R
+import ru.netology.recepiebook.activity.NewRecipeFragment.Companion.textArg
+import ru.netology.recepiebook.databinding.FragmentRecipeBinding
+import ru.netology.recepiebook.dto.Utils
+import ru.netology.recepiebook.viewmodel.RecipeViewModel
 
 class RecipeFragment : Fragment() {
     override fun onCreateView(
@@ -94,7 +93,7 @@ class RecipeFragment : Fragment() {
                             type = "text/plain"
                         }
                         val shareIntent =
-                            Intent.createChooser(intent, getString(R.string.chooser_share_post))
+                            Intent.createChooser(intent, getString(R.string.chooser_share_recipe))
                         startActivity(shareIntent)
                     }
                 }
@@ -104,7 +103,7 @@ class RecipeFragment : Fragment() {
     }
 
     companion object {
-        var Bundle.longArg: Long by LongArg
+        var Bundle.longArg: Long by Utils.LongArg
 
     }
 }

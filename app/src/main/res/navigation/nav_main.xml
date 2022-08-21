@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/feedFragment"
-        android:name="ru.netology.nmedia.activity.FeedFragment"
+        android:name="ru.netology.recepiebook.activity.FeedFragment"
         android:label="fragment_feed"
         tools:layout="@layout/fragment_feed">
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/newRecipeFragment"
-        android:name="ru.netology.nmedia.activity.NewRecipeFragment"
+        android:name="ru.netology.recepiebook.activity.NewRecipeFragment"
         android:label="fragment_new_recipe"
         tools:layout="@layout/fragment_new_recipe" />
     <fragment
         android:id="@+id/recipeFragment"
-        android:name="ru.netology.nmedia.activity.RecipeFragment"
+        android:name="ru.netology.recepiebook.activity.RecipeFragment"
         android:label="fragment_recipe"
         tools:layout="@layout/fragment_recipe" >
         <action

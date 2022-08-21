@@ -1,11 +1,12 @@
-package ru.netology.nmedia.viewmodel
+package ru.netology.recepiebook.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import ru.netology.nmedia.dto.Recipe
-import ru.netology.nmedia.repository.RecipeRepository
-import ru.netology.nmedia.repository.RecipeRepositoryFileImpl
+import ru.netology.recepiebook.db.AppDb
+import ru.netology.recepiebook.dto.Recipe
+import ru.netology.recepiebook.repository.RecipeRepository
+import ru.netology.recepiebook.repository.RecipeRepositorySQLiteImpl
 
 
 private val empty = Recipe(
@@ -18,12 +19,13 @@ private val empty = Recipe(
 
 class RecipeViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository: RecipeRepository = RecipeRepositoryFileImpl(application)
+    private val repository: RecipeRepository =
+        RecipeRepositorySQLiteImpl(AppDb.getInstance(application).postDao)
     val data = repository.getAll()
     private val edited = MutableLiveData(empty)
     fun save() {
         edited.value?.let {
-            repository.save(it)
+            repository.addRecipe(it)
         }
         edited.value = empty
     }

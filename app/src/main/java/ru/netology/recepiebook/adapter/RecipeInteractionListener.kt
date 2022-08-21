@@ -1,6 +1,6 @@
-package ru.netology.nmedia.adapter
+package ru.netology.recepiebook.adapter
 
-import ru.netology.nmedia.dto.Recipe
+import ru.netology.recepiebook.dto.Recipe
 
 interface RecipeInteractionListener {
     fun onLikeClicked(recipe: Recipe)

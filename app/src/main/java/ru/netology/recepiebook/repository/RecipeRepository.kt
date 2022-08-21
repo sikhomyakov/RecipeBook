@@ -1,7 +1,7 @@
-package ru.netology.nmedia.repository
+package ru.netology.recepiebook.repository
 
 import androidx.lifecycle.LiveData
-import ru.netology.nmedia.dto.Recipe
+import ru.netology.recepiebook.dto.Recipe
 
 interface RecipeRepository {
     fun getAll(): LiveData<List<Recipe>>
@@ -9,5 +9,6 @@ interface RecipeRepository {
     fun shareById(id: Long)
     fun deleteById(id: Long)
     fun favoriteById(id: Long)
-    fun save(recipe: Recipe)
+    fun addRecipe(recipe: Recipe)
+    fun findRecipeById(id: Long): Recipe
 }

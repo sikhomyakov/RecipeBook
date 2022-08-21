@@ -1,4 +1,4 @@
-package ru.netology.nmedia.activity
+package ru.netology.recepiebook.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
-import ru.netology.nmedia.R
-import ru.netology.nmedia.databinding.ActivityAppBinding
-import ru.netology.nmedia.activity.NewRecipeFragment.Companion.textArg
+import ru.netology.recepiebook.R
+import ru.netology.recepiebook.activity.NewRecipeFragment.Companion.textArg
+import ru.netology.recepiebook.databinding.ActivityAppBinding
 
 class AppActivity : AppCompatActivity() {
 

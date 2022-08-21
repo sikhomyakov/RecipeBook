@@ -1,4 +1,4 @@
-package ru.netology.nmedia.activity
+package ru.netology.recepiebook.activity
 
 import android.content.Intent
 import android.net.Uri
@@ -9,14 +9,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import ru.netology.nmedia.R
-import ru.netology.nmedia.activity.NewRecipeFragment.Companion.textArg
-import ru.netology.nmedia.activity.RecipeFragment.Companion.longArg
-import ru.netology.nmedia.adapter.RecipeInteractionListener
-import ru.netology.nmedia.adapter.RecipeAdapter
-import ru.netology.nmedia.databinding.FragmentFeedBinding
-import ru.netology.nmedia.dto.Recipe
-import ru.netology.nmedia.viewmodel.RecipeViewModel
+import ru.netology.recepiebook.R
+import ru.netology.recepiebook.activity.NewRecipeFragment.Companion.textArg
+import ru.netology.recepiebook.activity.RecipeFragment.Companion.longArg
+import ru.netology.recepiebook.adapter.RecipeAdapter
+import ru.netology.recepiebook.adapter.RecipeInteractionListener
+import ru.netology.recepiebook.databinding.FragmentFeedBinding
+import ru.netology.recepiebook.dto.Recipe
+import ru.netology.recepiebook.viewmodel.RecipeViewModel
 
 
 class FeedFragment : Fragment() {
@@ -61,7 +61,7 @@ class FeedFragment : Fragment() {
                 }
 
                 val shareIntent =
-                    Intent.createChooser(intent, getString(R.string.chooser_share_post))
+                    Intent.createChooser(intent, getString(R.string.chooser_share_recipe))
                 startActivity(shareIntent)
             }
 

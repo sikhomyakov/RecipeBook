@@ -1,4 +1,4 @@
-package ru.netology.nmedia.adapter
+package ru.netology.recepiebook.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +7,10 @@ import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ru.netology.nmedia.R
-import ru.netology.nmedia.databinding.RecipeBinding
-import ru.netology.nmedia.dto.Recipe
-import ru.netology.nmedia.dto.Utils
+import ru.netology.recepiebook.R
+import ru.netology.recepiebook.databinding.RecipeBinding
+import ru.netology.recepiebook.dto.Recipe
+import ru.netology.recepiebook.dto.Utils
 
 
 internal class RecipeAdapter(
