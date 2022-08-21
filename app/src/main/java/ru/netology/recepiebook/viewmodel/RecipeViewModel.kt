@@ -14,7 +14,11 @@ private val empty = Recipe(
     content = "",
     author = "",
     likedByMe = false,
-    published = ""
+    published = "",
+    likes = 0,
+    shares = 0,
+    video = "",
+    favoriteByMe = false,
 )
 
 class RecipeViewModel(application: Application) : AndroidViewModel(application) {
