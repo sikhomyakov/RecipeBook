@@ -65,4 +65,5 @@
     <string name="empty_state_description_word_no_recipe">" Это снова тост, пока вы не добавите что-то новое."</string>
     <string name="empty_state_word_no_favorites">Нет избранных рецептов</string>
     <string name="empty_state_description_word_no_favorites">Пришло время выбрать ваши любимые рецепты</string>
+    <string name="recipe_published">Опубликовано</string>
 </resources>

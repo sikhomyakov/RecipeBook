@@ -23,7 +23,7 @@ class AppActivity : AppCompatActivity() {
         binding.recipesBottomNavigationView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.recipesFeedFragment || destination.id == R.id.faveRecipesFeedFragment) {
+            if (destination.id == R.id.recipesFeedFragment || destination.id == R.id.favoriteRecipesFeedFragment) {
                 binding.recipesBottomNavigationView.visibility = View.VISIBLE
             } else {
                 binding.recipesBottomNavigationView.visibility = View.GONE

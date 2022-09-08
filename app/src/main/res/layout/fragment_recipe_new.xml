@@ -26,11 +26,12 @@
                 android:maxHeight="@dimen/max_recipe_image_height"
                 android:minHeight="@dimen/min_recipe_image_height"
                 android:scaleType="fitCenter"
-                android:src="@drawable/no_recipe"
+                android:src="@drawable/no_img"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
 
 
             <EditText
@@ -88,7 +89,7 @@
                 android:id="@+id/newRecipeChipGroup"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-
+                android:paddingBottom="@dimen/common_spacing"
                 app:layout_constraintEnd_toEndOf="@id/newRecipeImageView"
                 app:layout_constraintStart_toStartOf="@id/newRecipeCategoriesWordTextView"
                 app:layout_constraintTop_toBottomOf="@id/newRecipeCategoriesWordTextView">
@@ -145,8 +146,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/common_spacing"
                 android:contentDescription="@string/new_recipe_save_button_description"
-                android:padding="@dimen/common_spacing"
                 android:text="@string/save_recipe"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/newRecipeImageView"
                 app:layout_constraintStart_toStartOf="@id/newRecipeImageView"
                 app:layout_constraintTop_toBottomOf="@id/newRecipeStepsEditText" />

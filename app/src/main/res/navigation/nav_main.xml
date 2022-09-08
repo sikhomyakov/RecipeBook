@@ -19,7 +19,7 @@
             app:destination="@id/newRecipeFragment" />
         <action
             android:id="@+id/toFaveRecipesFeedFragment"
-            app:destination="@id/faveRecipesFeedFragment" />
+            app:destination="@id/favoriteRecipesFeedFragment" />
     </fragment>
     <fragment
         android:id="@+id/editRecipeFragment"
@@ -38,7 +38,7 @@
             app:argType="long" />
     </fragment>
     <fragment
-        android:id="@+id/faveRecipesFeedFragment"
+        android:id="@+id/favoriteRecipesFeedFragment"
         android:name="ru.netology.recipesbook.activity.FavouriteRecipesFeedFragment"
         android:label="FaveRecipesFeedFragment">
         <action

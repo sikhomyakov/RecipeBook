@@ -88,6 +88,8 @@ internal class RecipeAdapter(
             this.recipe = recipe
             with(binding) {
                 titleRecipeCardTextView.text = recipe.title
+                recipeAuthor.text = recipe.author
+                recipePublished.text = recipe.published
                 recipeCardImageView.setImageURI(Uri.parse(recipe.recipeImg))
                 favoriteRecipeCardMaterialButton.isChecked = recipe.favoriteByMe
                 setCategories(chipGroup.context, recipe.categories, binding)

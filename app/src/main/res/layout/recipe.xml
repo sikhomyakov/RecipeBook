@@ -3,9 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-
-    >
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/recipeCardImageView"
@@ -19,13 +17,41 @@
         android:src="@drawable/no_recipe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/recipeAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_spacing"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/author"
+        android:textSize="@dimen/default_text_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/recipePublished"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/recipe_published"
+        app:layout_constraintStart_toStartOf="@id/recipeAuthor"
+        app:layout_constraintTop_toBottomOf="@id/recipeAuthor" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/favoriteRecipeCardMaterialButton"
         style="@style/Widget.AppTheme.FavouriteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_spacing"
         android:checkable="true"
         android:contentDescription="@string/favourite_button_recipe_description"
         app:layout_constraintBottom_toBottomOf="@+id/recipeCardImageView"
@@ -54,7 +80,8 @@
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="3"
-        android:padding="@dimen/common_spacing"
+        android:paddingStart="@dimen/common_spacing"
+        android:paddingEnd="@dimen/common_spacing"
         android:textAlignment="center"
         android:textSize="@dimen/title_recipe_card_text_size"
         android:textStyle="bold"
@@ -67,6 +94,8 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/recipeCardOptionsMaterialButton"
         style="@style/Widget.AppTheme.OptionsButton"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:layout_marginEnd="@dimen/common_spacing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/options_text_description"

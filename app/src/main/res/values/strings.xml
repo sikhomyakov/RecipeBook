@@ -64,4 +64,5 @@
     <string name="empty_state_description_word_no_recipe">It\'s toast again until you add something new.</string>
     <string name="empty_state_word_no_favorites">No favorites</string>
     <string name="empty_state_description_word_no_favorites">It\'s time to choose your favorite recipes.</string>
+    <string name="recipe_published">Published</string>
 </resources>

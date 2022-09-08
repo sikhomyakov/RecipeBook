@@ -5,13 +5,11 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import ru.netology.recipesbook.activity.EditRecipeFragment
 import ru.netology.recipesbook.activity.NewRecipeFragment
-
 import ru.netology.recipesbook.adapter.RecipeInteractionListener
 import ru.netology.recipesbook.adapter.StepInteractionListener
 import ru.netology.recipesbook.db.AppDb
 import ru.netology.recipesbook.dto.Recipe
 import ru.netology.recipesbook.dto.SingleLiveEvent
-
 import ru.netology.recipesbook.repository.RecipeRepositoryImpl
 
 
@@ -56,7 +54,7 @@ class RecipeViewModel(application: Application) :
             id = 0,
             author = "",
             title = "",
-            content = "Описание рецепта",
+            content = "",
             published = "",
             recipeImg = "",
             steps = mutableMapOf(),

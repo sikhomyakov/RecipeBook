@@ -43,11 +43,11 @@
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_new_recipe.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipe.xml" value="0.264" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipe_edit.xml" value="0.264" />
-        <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipe_new.xml" value="0.264" />
+        <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipe_new.xml" value="0.1" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipes_feed.xml" value="0.25925925925925924" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipes_feed_favorites.xml" value="0.25" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/post.xml" value="0.72" />
-        <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/recipe.xml" value="0.264" />
+        <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/recipe.xml" value="0.1" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/recipe_card.xml" value="0.25" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/recipe_menu.xml" value="0.11041666666666666" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/step.xml" value="0.536" />
@@ -56,7 +56,7 @@
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/menu/options_recipe.xml" value="0.25" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/menu/recipe_categories_menu.xml" value="0.25" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/menu/recipe_edit_menu.xml" value="0.25" />
-        <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/menu/recipe_feed_bottom_navigation_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/menu/recipe_feed_bottom_navigation_menu.xml" value="0.2" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/menu/recipe_menu.xml" value="0.1" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/menu/recipe_options.xml" value="0.16574074074074074" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />

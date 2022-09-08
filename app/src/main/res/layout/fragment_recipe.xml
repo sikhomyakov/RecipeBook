@@ -33,12 +33,37 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/recipeFragmentAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_spacing"
+                android:layout_marginTop="@dimen/common_spacing"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/author"
+                android:textSize="@dimen/default_text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/recipeFragmentPublished"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@string/recipe_published"
+                app:layout_constraintStart_toStartOf="@id/recipeFragmentAuthor"
+                app:layout_constraintTop_toBottomOf="@id/recipeFragmentAuthor"
+                app:layout_constraintVertical_chainStyle="packed" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/like_recipe_material_button"
                 style="@style/AppCheckableButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:background="@android:color/transparent"
                 android:checkable="true"
                 android:text="@string/number_of_likes"
@@ -54,6 +79,7 @@
                 style="@style/Widget.AppTheme.FavouriteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/common_spacing"
                 android:checkable="true"
                 android:contentDescription="@string/favourite_button_recipe_description"
                 app:layout_constraintBottom_toBottomOf="@+id/recipeImageView"
@@ -67,7 +93,6 @@
                 android:ellipsize="end"
                 android:gravity="center"
                 android:maxLines="3"
-                android:padding="@dimen/common_spacing"
                 android:textAlignment="center"
                 android:textSize="@dimen/title_recipe_card_text_size"
                 android:textStyle="bold"

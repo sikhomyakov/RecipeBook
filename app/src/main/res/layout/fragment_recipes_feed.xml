@@ -24,6 +24,7 @@
         android:contentDescription="@string/add_recipe"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/design_default_color_primary_variant"
         app:srcCompat="@drawable/ic_add_24"
         app:useCompatPadding="true" />
 
@@ -31,7 +32,7 @@
         android:id="@+id/emptyStateFeedGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:visibility="gone"
         app:constraint_referenced_ids="recipeFeedEmptyStateImg, emptyStateNoRecipeTextView, emptyStateNoRecipeDescriptionTextView" />
 
     <ImageView
@@ -58,8 +59,8 @@
         android:textSize="@dimen/title_recipe_card_text_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/recipeFeedEmptyStateImg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/emptyStateNoRecipeDescriptionTextView"

@@ -61,13 +61,14 @@ class NewRecipeFragment : Fragment() {
         return FragmentRecipeNewBinding.inflate(layoutInflater, container, false).also { binding ->
             with(binding) {
 
+
                 val newRecipe = MutableLiveData(
                     Recipe(
                         id = 0,
-                        author = "",
-                        content = "",
-                        title = "",
+                        author = "Me",
                         published = Utils.addLocalDataTime(),
+                        title = "",
+                        content = "",
                         recipeImg = "",
                         steps = mutableMapOf(),
                         categories = mutableSetOf()
@@ -77,6 +78,7 @@ class NewRecipeFragment : Fragment() {
                 newRecipe.observe(viewLifecycleOwner) { recipe ->
                     render(recipe)
                 }
+
 
                 val categories = mutableSetOf<Categories>()
 
@@ -106,13 +108,12 @@ class NewRecipeFragment : Fragment() {
 
                 var recipeImg = ""
 
+
                 viewModel.newRecipeImg.observe(viewLifecycleOwner) { path ->
                     recipeImg = path
                     newRecipe.value =
                         newRecipe.value?.copy(recipeImg = recipeImg)
                 }
-
-
 
                 newRecipeImageView.setOnClickListener {
                     val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
@@ -209,7 +210,7 @@ class NewRecipeFragment : Fragment() {
 
 
     companion object {
-        private const val DEFAULT_IMAGE =
+        const val DEFAULT_IMAGE =
             "android.resource://ru.netology.recipesbook/drawable/no_img"
         const val CALLER_NEW_RECIPE = "Caller: newRecipe"
     }

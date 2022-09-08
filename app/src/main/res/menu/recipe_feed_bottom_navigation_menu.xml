@@ -9,7 +9,7 @@
         app:showAsAction="always" />
 
     <item
-        android:id="@+id/faveRecipesFeedFragment"
+        android:id="@+id/favoriteRecipesFeedFragment"
         android:icon="@drawable/ic_bookmark_24dp"
         android:title="@string/action_bar_favorite_recipes_button"
         app:showAsAction="always" />

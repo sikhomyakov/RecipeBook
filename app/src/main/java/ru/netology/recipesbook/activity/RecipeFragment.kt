@@ -96,6 +96,8 @@ class RecipeFragment : Fragment() {
     private fun FragmentRecipeBinding.render(recipe: Recipe) {
         recipeNameTextView.text = recipe.title
         recipeImageView.setImageURI(Uri.parse(recipe.recipeImg))
+        recipeFragmentAuthor.text = recipe.author
+        recipeFragmentPublished.text = recipe.published
         recipeContentWordTextView.text = recipe.content
         likeRecipeMaterialButton.text = Utils.counter(recipe.likes)
         likeRecipeMaterialButton.isChecked = recipe.likedByMe
