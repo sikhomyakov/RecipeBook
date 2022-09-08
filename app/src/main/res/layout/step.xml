@@ -45,10 +45,9 @@
         style="@style/Widget.AppTheme.DeleteStepButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/"
-        app:layout_constraintBottom_toBottomOf="@id/stepNumberTextView"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/stepNumberTextView" />
+        app:layout_constraintTop_toTopOf="@id/stepWordTextView" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/stepImageView"

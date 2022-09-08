@@ -43,7 +43,8 @@
 
             <EditText
                 android:id="@+id/editRecipeContentWordEditView"
-                android:layout_width="match_parent"
+
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/categories_word_text_description"
                 android:ellipsize="end"

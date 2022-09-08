@@ -58,7 +58,11 @@
     <string name="options_text_description" />
     <string name="recipe_card_image_text_description" />
     <string name="recipe_description">Recipe description</string>
-    <string name="error_empty_discription">Error empty discription</string>
+    <string name="error_empty_description">Error empty discription</string>
     <string name="add_category_button_text_description">Описание кнопки добавления категории</string>
     <string name="delete_step_text_description">Удалить шаг приготовления</string>
+    <string name="empty_state_word_no_recipe">У вас пока нет рецептов</string>
+    <string name="empty_state_description_word_no_recipe">" Это снова тост, пока вы не добавите что-то новое."</string>
+    <string name="empty_state_word_no_favorites">Нет избранных рецептов</string>
+    <string name="empty_state_description_word_no_favorites">Пришло время выбрать ваши любимые рецепты</string>
 </resources>

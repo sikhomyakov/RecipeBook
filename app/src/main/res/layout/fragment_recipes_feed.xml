@@ -27,17 +27,51 @@
         app:srcCompat="@drawable/ic_add_24"
         app:useCompatPadding="true" />
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/emptyStateFeedGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:constraint_referenced_ids="recipeFeedEmptyStateImg, emptyStateNoRecipeTextView, emptyStateNoRecipeDescriptionTextView" />
+
     <ImageView
-        android:id="@+id/recipe_feed_empty_state"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/placeholder_spacing"
+        android:id="@+id/recipeFeedEmptyStateImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:scaleType="center"
         android:src="@drawable/no_recipe"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.353" />
+
+    <TextView
+        android:id="@+id/emptyStateNoRecipeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/common_spacing"
+        android:text="@string/empty_state_word_no_recipe"
+        android:textAlignment="center"
+        android:textSize="@dimen/title_recipe_card_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/recipeFeedEmptyStateImg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/emptyStateNoRecipeDescriptionTextView"
+        android:layout_width="@dimen/max_recipe_image_height"
+        android:layout_height="wrap_content"
+        android:ellipsize="middle"
+        android:maxLines="2"
+        android:text="@string/empty_state_description_word_no_recipe"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emptyStateNoRecipeTextView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

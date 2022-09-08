@@ -47,7 +47,7 @@
 
             <EditText
                 android:id="@+id/newRecipeContentWordEditView"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/categories_word_text_description"
                 android:ellipsize="end"
@@ -88,10 +88,10 @@
                 android:id="@+id/newRecipeChipGroup"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingBottom="@dimen/common_spacing"
+
                 app:layout_constraintEnd_toEndOf="@id/newRecipeImageView"
                 app:layout_constraintStart_toStartOf="@id/newRecipeCategoriesWordTextView"
-                app:layout_constraintTop_toBottomOf="@id/addCategoryImageButton">
+                app:layout_constraintTop_toBottomOf="@id/newRecipeCategoriesWordTextView">
 
             </com.google.android.material.chip.ChipGroup>
 

@@ -8,34 +8,56 @@
     tools:context=".activity.FavouriteRecipesFeedFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/faveRecipesRecyclerView"
+        android:id="@+id/favoriteRecipesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/recipe" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/faveNewRecipeFab"
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/emptyStateFavoritesFeedGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/common_spacing"
-        android:contentDescription="@string/add_recipe"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_add_24"
-        app:useCompatPadding="true" />
+        android:visibility="gone"
+        app:constraint_referenced_ids="recipeFeedFavoritesEmptyStateImg, emptyStateFavoritesTextView, emptyStateFavoritesDescriptionTextView" />
 
     <ImageView
-        android:id="@+id/faveRecipeFeedPlaceholderNotFound"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/placeholder_spacing"
+        android:id="@+id/recipeFeedFavoritesEmptyStateImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:scaleType="center"
         android:src="@drawable/no_favorites"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.386" />
+
+    <TextView
+        android:id="@+id/emptyStateFavoritesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/common_spacing"
+        android:text="@string/empty_state_word_no_favorites"
+        android:textAlignment="center"
+        android:textSize="@dimen/title_recipe_card_text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recipeFeedFavoritesEmptyStateImg" />
+
+    <TextView
+        android:id="@+id/emptyStateFavoritesDescriptionTextView"
+        android:layout_width="@dimen/max_recipe_image_height"
+        android:layout_height="wrap_content"
+        android:ellipsize="middle"
+        android:maxLines="2"
+        android:text="@string/empty_state_description_word_no_favorites"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/emptyStateFavoritesTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

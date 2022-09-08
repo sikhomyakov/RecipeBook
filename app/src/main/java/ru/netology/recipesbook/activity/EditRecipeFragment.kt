@@ -167,14 +167,14 @@ class EditRecipeFragment : Fragment() {
                         editRecipeNameEditText.requestFocus()
                         editRecipeNameEditText.error =
                             resources.getString(R.string.error_empty_title)
+                    } else if (editRecipeContentWordEditView.text.isNullOrBlank()) {
+                        editRecipeContentWordEditView.requestFocus()
+                        editRecipeContentWordEditView.error =
+                            resources.getString(R.string.error_empty_description)
                     } else if (steps.isEmpty()) {
                         editRecipeStepsEditText.requestFocus()
                         editRecipeStepsEditText.error =
                             resources.getString(R.string.error_empty_steps)
-                    } else if (editRecipeContentWordEditView.text.isNullOrBlank()) {
-                        editRecipeContentWordEditView.requestFocus()
-                        editRecipeContentWordEditView.error =
-                            resources.getString(R.string.error_empty_discription)
                     }
                 }
             }

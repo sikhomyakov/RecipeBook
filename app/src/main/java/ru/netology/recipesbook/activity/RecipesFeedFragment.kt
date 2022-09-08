@@ -59,9 +59,9 @@ class RecipesFeedFragment : Fragment() {
 
                 viewModel.data.observe(viewLifecycleOwner) { recipes ->
                     if (recipes.isNullOrEmpty()) {
-                        binding.recipeFeedEmptyState.visibility = View.VISIBLE
+                        binding.emptyStateFeedGroup.visibility = View.VISIBLE
                     } else {
-                        binding.recipeFeedEmptyState.visibility = View.GONE
+                        binding.emptyStateFeedGroup.visibility = View.GONE
                     }
 
                     recipeAdapter.setData(recipes.toMutableList())

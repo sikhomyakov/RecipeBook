@@ -49,19 +49,15 @@ class FavouriteRecipesFeedFragment : Fragment() {
         return FragmentRecipesFeedFavoritesBinding.inflate(layoutInflater, container, false)
             .also { binding ->
 
-                binding.faveNewRecipeFab.setOnClickListener {
-                    viewModel.add()
-                }
-
                 val recipeAdapter = RecipeAdapter(viewModel)
-                binding.faveRecipesRecyclerView.adapter = recipeAdapter
+                binding.favoriteRecipesRecyclerView.adapter = recipeAdapter
 
                 viewModel.data.observe(viewLifecycleOwner) { recipes ->
                     val favouriteRecipes = recipes.filter { recipe -> recipe.favoriteByMe }
                     if (favouriteRecipes.isEmpty()) {
-                        binding.faveRecipeFeedPlaceholderNotFound.visibility = View.VISIBLE
+                        binding.emptyStateFavoritesFeedGroup.visibility = View.VISIBLE
                     } else {
-                        binding.faveRecipeFeedPlaceholderNotFound.visibility = View.GONE
+                        binding.emptyStateFavoritesFeedGroup.visibility = View.GONE
                     }
 
                     recipeAdapter.submitList(favouriteRecipes)
