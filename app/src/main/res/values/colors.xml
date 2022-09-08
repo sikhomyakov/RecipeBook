@@ -14,4 +14,8 @@
     <color name="colorMediumGrey">#A59A9A</color>
     <color name="colorDarkGrey">#A9A9A9</color>
     <color name="colorRed">#FF0000</color>
+
+    <color name="grey_500">#9E9E9E</color>
+    <color name="grey_500_transparent_50">#809E9E9E</color>
+
 </resources>

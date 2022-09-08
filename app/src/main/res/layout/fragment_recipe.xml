@@ -1,13 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.RecipeFragment">
+    android:scrollbars="vertical"
+
+    tools:context="activity.NewRecipeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/recipeImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/recipe_image_description"
+                android:maxHeight="@dimen/max_recipe_image_height"
+                android:minHeight="@dimen/min_recipe_image_height"
+                android:scaleType="center"
+                android:src="@drawable/no_recipe"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/like_recipe_material_button"
+                style="@style/AppCheckableButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@android:color/transparent"
+                android:checkable="true"
+                android:text="@string/number_of_likes"
+                android:textAppearance="@style/TextStyle"
+                android:textColor="@color/colorDarkGrey"
+                app:icon="@drawable/ic_like_24dp"
+                app:iconTint="@color/selector_like_color"
+                app:layout_constraintBottom_toBottomOf="@id/recipeImageView"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/favorite_recipe_material_button"
+                style="@style/Widget.AppTheme.FavouriteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="true"
+                android:contentDescription="@string/favourite_button_recipe_description"
+                app:layout_constraintBottom_toBottomOf="@+id/recipeImageView"
+                app:layout_constraintEnd_toEndOf="parent" />
 
 
-    <include
-        android:id="@+id/recipeLayout"
-        layout="@layout/recipe" />
+            <TextView
+                android:id="@+id/recipeNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="3"
+                android:padding="@dimen/common_spacing"
+                android:textAlignment="center"
+                android:textSize="@dimen/title_recipe_card_text_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recipeImageView"
+                tools:text="Название рецепта" />
 
-</ScrollView>
+
+            <TextView
+                android:id="@+id/recipeContentWordTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/categories_word_text_description"
+                android:ellipsize="end"
+                android:padding="@dimen/common_spacing"
+                app:layout_constraintEnd_toEndOf="@id/recipeImageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recipeNameTextView"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Описание рецепта" />
+
+            <TextView
+                android:id="@+id/recipeCategoriesWordTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/categories_word_text_description"
+                android:text="@string/categories_word"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/recipeImageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recipeContentWordTextView"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/recipeChipGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_spacing"
+                app:layout_constraintEnd_toEndOf="@id/recipeImageView"
+                app:layout_constraintStart_toStartOf="@id/recipeCategoriesWordTextView"
+                app:layout_constraintTop_toBottomOf="@id/recipeCategoriesWordTextView" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrierRecipe"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="recipeChipGroup" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recipeStepsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/common_spacing"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/recipeImageView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/recipeImageView"
+                app:layout_constraintTop_toBottomOf="@id/barrierRecipe"
+                tools:listitem="@layout/step" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>

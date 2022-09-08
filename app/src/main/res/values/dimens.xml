@@ -6,5 +6,12 @@
     <dimen name="default_icon_size">24dp</dimen>
     <dimen name="icon_button_padding">16dp</dimen>
     <dimen name="icon_button_max_size">48dp</dimen>
-
+    <dimen name="min_recipe_image_height">120dp</dimen>
+    <dimen name="max_recipe_image_height">240dp</dimen>
+    <dimen name="placeholder_spacing">48dp</dimen>
+    <dimen name="recipe_card_image_size">120dp</dimen>
+    <dimen name="title_recipe_card_text_size">24sp</dimen>
+    <dimen name="options_recipe_card_icon_size">32dp</dimen>
+    <dimen name="recipe_card_icon_size">32dp</dimen>
+    <dimen name="text_size_head">24sp</dimen>
 </resources>
