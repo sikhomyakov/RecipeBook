@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import ru.netology.recepiebook.db.AppDb
 import ru.netology.recepiebook.dto.Recipe
+import ru.netology.recepiebook.dto.Utils
 import ru.netology.recepiebook.repository.RecipeRepository
 import ru.netology.recepiebook.repository.RecipeRepositorySQLiteImpl
 
@@ -12,9 +13,9 @@ import ru.netology.recepiebook.repository.RecipeRepositorySQLiteImpl
 private val empty = Recipe(
     id = 0,
     content = "",
-    author = "",
+    author = "Me",
     likedByMe = false,
-    published = "",
+    published = Utils.addLocalDataTime(),
     likes = 0,
     shares = 0,
     video = "",

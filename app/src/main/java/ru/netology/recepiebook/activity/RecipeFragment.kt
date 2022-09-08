@@ -1,7 +1,6 @@
 package ru.netology.recepiebook.activity
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -67,18 +66,7 @@ class RecipeFragment : Fragment() {
                         }.show()
                     }
 
-                    if (recipe.video != null) videoGroup.visibility = View.VISIBLE
-                    else videoGroup.visibility = View.GONE
 
-                    video.setOnClickListener {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(recipe.video))
-                        startActivity(intent)
-                    }
-
-                    play.setOnClickListener {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(recipe.video))
-                        startActivity(intent)
-                    }
 
 
                     likeButton.setOnClickListener {

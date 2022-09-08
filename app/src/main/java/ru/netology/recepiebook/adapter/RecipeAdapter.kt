@@ -1,7 +1,6 @@
 package ru.netology.recepiebook.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
@@ -61,19 +60,11 @@ class ViewHolder(
                     }
                 }.show()
             }
-            if (recipe.video != null) videoGroup.visibility = View.VISIBLE
-            else videoGroup.visibility = View.GONE
 
             content.setOnClickListener {
                 listener.onRecipeClicked(recipe)
             }
-            video.setOnClickListener {
-                listener.onVideoClicked(recipe)
-            }
 
-            play.setOnClickListener {
-                listener.onVideoClicked(recipe)
-            }
 
             likeButton.setOnClickListener {
                 listener.onLikeClicked(recipe)
