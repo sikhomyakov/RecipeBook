@@ -20,6 +20,9 @@
         <action
             android:id="@+id/toFaveRecipesFeedFragment"
             app:destination="@id/favoriteRecipesFeedFragment" />
+        <action
+            android:id="@+id/toFiltersFragment"
+            app:destination="@id/filtersFragment" />
     </fragment>
     <fragment
         android:id="@+id/editRecipeFragment"
@@ -54,4 +57,8 @@
             android:id="@+id/toRecipesFeedFragment"
             app:destination="@id/recipesFeedFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/filtersFragment"
+        android:name="ru.netology.recipesbook.activity.FiltersFragment"
+        android:label="FiltersFragment" />
 </navigation>

@@ -1,6 +1,7 @@
 package ru.netology.recipesbook.activity
 
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import ru.netology.recipesbook.R
 import ru.netology.recipesbook.databinding.ActivityAppBinding
+import ru.netology.recipesbook.dto.Categories
 
 
 class AppActivity : AppCompatActivity() {
@@ -29,7 +31,16 @@ class AppActivity : AppCompatActivity() {
                 binding.recipesBottomNavigationView.visibility = View.GONE
             }
         }
-
+        val sharedPref =
+            getSharedPreferences(FiltersFragment.SHARED_PREFS_KEY, Context.MODE_PRIVATE)
+        if (sharedPref != null) {
+            with(sharedPref.edit()) {
+                for (i in 0 until Categories.values().size) {
+                    putBoolean(i.toString(), false)
+                }
+                apply()
+            }
+        }
 
     }
 }

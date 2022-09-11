@@ -5,9 +5,11 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import ru.netology.recipesbook.activity.EditRecipeFragment
 import ru.netology.recipesbook.activity.NewRecipeFragment
+import ru.netology.recipesbook.adapter.FilterInteractionListener
 import ru.netology.recipesbook.adapter.RecipeInteractionListener
 import ru.netology.recipesbook.adapter.StepInteractionListener
 import ru.netology.recipesbook.db.AppDb
+import ru.netology.recipesbook.dto.Categories
 import ru.netology.recipesbook.dto.Recipe
 import ru.netology.recipesbook.dto.SingleLiveEvent
 import ru.netology.recipesbook.repository.RecipeRepositoryImpl
@@ -16,6 +18,7 @@ import ru.netology.recipesbook.repository.RecipeRepositoryImpl
 class RecipeViewModel(application: Application) :
     RecipeInteractionListener,
     StepInteractionListener,
+    FilterInteractionListener,
     AndroidViewModel(application) {
 
     private val repository = RecipeRepositoryImpl(
@@ -40,6 +43,11 @@ class RecipeViewModel(application: Application) :
     val editingRecipe = MutableLiveData<Recipe>()
     val editRecipeImg = MutableLiveData<String>()
     val editStepImg = MutableLiveData<String>()
+
+    val listOfFilters = MutableLiveData<MutableList<Categories>>(mutableListOf())
+    val filteredRecipes = MutableLiveData<List<Recipe>>(mutableListOf())
+    val filterRecipes = SingleLiveEvent<Boolean>()
+    override val filterCheckboxUpdate = MutableLiveData(false)
 
     fun create(recipe: Recipe) {
         repository.addRecipe(recipe)
@@ -66,6 +74,29 @@ class RecipeViewModel(application: Application) :
         navigateToNewRecipe.call()
     }
 
+    fun onApplyFiltersButtonClicked() {
+        filteredRecipes.value = data.value
+        val recipes = if (!listOfFilters.value.isNullOrEmpty()) {
+            filteredRecipes.value?.filter { recipe ->
+                recipe.categories.any { category ->
+                    category in (listOfFilters.value?.toList() ?: mutableListOf())
+                }
+            }
+        } else {
+            data.value
+        }
+
+        filteredRecipes.value = recipes ?: data.value
+        filterRecipes.call()
+    }
+
+    fun onResetFiltersButtonClicked() {
+        filteredRecipes.value = data.value
+
+
+        listOfFilters.value = mutableListOf()
+        filterRecipes.call()
+    }
 
     override fun onLikeClicked(recipe: Recipe) {
         repository.likeById(recipe.id)
@@ -104,6 +135,18 @@ class RecipeViewModel(application: Application) :
         } else if (caller == EditRecipeFragment.CALLER_EDIT_RECIPE) {
             editingRecipe.value = recipe.copy(steps = newRecipeSteps)
         }
+    }
+
+    override fun onCheckClicked(category: Categories) {
+        val filters = listOfFilters.value
+        filters?.add(category)
+        listOfFilters.value = filters ?: mutableListOf()
+    }
+
+    override fun onUncheckClicked(category: Categories) {
+        val filters = listOfFilters.value
+        filters?.remove(category)
+        listOfFilters.value = filters ?: mutableListOf()
     }
 }
 

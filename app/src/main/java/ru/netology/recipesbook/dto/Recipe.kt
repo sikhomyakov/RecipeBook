@@ -27,5 +27,13 @@ enum class Categories(val categoryName: String) {
     ORIENTAL(App.appContext.getString(R.string.category_Oriental)),
     AMERICAN(App.appContext.getString(R.string.category_American)),
     RUSSIAN(App.appContext.getString(R.string.category_Russian)),
-    MEDITERRANEAN(App.appContext.getString(R.string.category_Mediterranean))
+    MEDITERRANEAN(App.appContext.getString(R.string.category_Mediterranean));
+
+    companion object {
+        fun from(search: String): Categories {
+            return requireNotNull(
+                values().find { it.categoryName == search }
+            ) { "No Category with value $search" }
+        }
+    }
 }

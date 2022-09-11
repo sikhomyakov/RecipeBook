@@ -65,4 +65,11 @@
     <string name="empty_state_word_no_favorites">No favorites</string>
     <string name="empty_state_description_word_no_favorites">It\'s time to choose your favorite recipes.</string>
     <string name="recipe_published">Published</string>
+    <string name="category_filter">Сategory filter</string>
+    <string name="filter_all">Filter all</string>
+    <string name="reset_filters_button">Reset filters button</string>
+    <string name="apply_filters_button">Apply filters button</string>
+    <string name="action_bar_search_button">Action Bar search button</string>
+    <string name="action_bar_filter_button">Action bar filter button</string>
+    <string name="search_filter_hint">Search filter hint</string>
 </resources>

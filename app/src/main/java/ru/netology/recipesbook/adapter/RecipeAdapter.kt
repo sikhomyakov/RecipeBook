@@ -14,6 +14,7 @@ import ru.netology.recipesbook.databinding.RecipeBinding
 import ru.netology.recipesbook.dto.Categories
 import ru.netology.recipesbook.dto.Recipe
 import ru.netology.recipesbook.dto.Utils
+import java.util.*
 
 
 internal class RecipeAdapter(
@@ -108,6 +109,28 @@ internal class RecipeAdapter(
         override fun areContentsTheSame(oldItem: Recipe, newItem: Recipe) =
             oldItem == newItem
 
+    }
+
+    fun filter(query: CharSequence?): Boolean {
+        val filteredList = mutableListOf<Recipe>()
+        if (query == null || query.isEmpty()) {
+            filteredList.addAll(list)
+        } else {
+            for (item in list) {
+                if (
+                    item.title
+                        .lowercase(Locale.getDefault())
+                        .contains(
+                            query.toString().lowercase(Locale.getDefault())
+                        )
+                ) {
+                    filteredList.add(item)
+                }
+            }
+        }
+        submitList(filteredList)
+
+        return filteredList.isEmpty()
     }
 }
 
