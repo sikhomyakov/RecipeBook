@@ -46,8 +46,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        app:layout_constraintBottom_toBottomOf="@+id/stepWordTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/stepWordTextView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/stepImageView"
@@ -58,6 +59,7 @@
         android:contentDescription="@string/step_image_description"
         android:maxHeight="@dimen/max_recipe_image_height"
         android:minHeight="@dimen/min_recipe_image_height"
+        android:padding="@dimen/common_spacing"
         android:scaleType="centerCrop"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
