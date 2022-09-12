@@ -26,6 +26,7 @@
                 android:contentDescription="@string/recipe_image_description"
                 android:maxHeight="@dimen/max_recipe_image_height"
                 android:minHeight="@dimen/min_recipe_image_height"
+                android:padding="@dimen/common_spacing"
                 android:scaleType="center"
                 android:src="@drawable/no_recipe"
                 android:visibility="visible"
