@@ -144,6 +144,7 @@
                 android:layout_margin="@dimen/common_spacing"
                 android:contentDescription="@string/new_recipe_save_button_description"
                 android:padding="@dimen/common_spacing"
+                android:backgroundTint="@color/colorDarkGrey"
                 android:text="@string/save_recipe"
                 app:layout_constraintEnd_toEndOf="@id/editRecipeImageView"
                 app:layout_constraintStart_toStartOf="@id/editRecipeImageView"

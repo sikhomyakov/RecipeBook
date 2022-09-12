@@ -49,7 +49,7 @@
     <string name="steps_word">Steps</string>
     <string name="new_recipe_steps_word_description">new_recipe_steps_word_description</string>
     <string name="recipe_step">Recipe step</string>
-    <string name="new_recipe_add_step_image_description" translatable="false">new_recipe_add_step_image_description</string>
+    <string name="new_recipe_add_step_image_description">new_recipe_add_step_image_description</string>
     <string name="new_recipe_add_step_description">new_recipe_add_step_description</string>
     <string name="new_recipe_save_button_description">new_recipe_save_button_description</string>
     <string name="save_recipe">Save Recipe</string>
@@ -71,5 +71,5 @@
     <string name="apply_filters_button">Apply filters button</string>
     <string name="action_bar_search_button">Action Bar search button</string>
     <string name="action_bar_filter_button">Action bar filter button</string>
-    <string name="search_filter_hint">Search filter hint</string>
+    <string name="search_line">Search line</string>
 </resources>

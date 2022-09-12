@@ -15,6 +15,7 @@
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/drawable/ic_delete_button_outline_24.xml" value="0.1865" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/drawable/ic_delete_button_outline_24dp.xml" value="0.137" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/drawable/ic_favorite_filled_24dp.xml" value="0.137" />
+        <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/drawable/ic_filter_button_24.xml" value="0.1" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/drawable/ic_filter_button_24dp.xml" value="0.1" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/drawable/ic_image_button_24.xml" value="0.1865" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/drawable/ic_image_button_24dp.xml" value="0.137" />
@@ -43,8 +44,8 @@
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_new_recipe.xml" value="0.24635416666666668" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipe.xml" value="0.264" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipe_edit.xml" value="0.264" />
-        <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipe_new.xml" value="0.1" />
-        <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipes_feed.xml" value="0.2" />
+        <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipe_new.xml" value="0.264" />
+        <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipes_feed.xml" value="0.1" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/fragment_recipes_feed_favorites.xml" value="0.25" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/post.xml" value="0.72" />
         <entry key="..\:/Users/Stanislav/AndroidStudioProjects/NeRecipe/app/src/main/res/layout/recipe.xml" value="0.1" />

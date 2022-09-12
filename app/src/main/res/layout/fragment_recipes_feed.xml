@@ -16,7 +16,7 @@
         android:focusableInTouchMode="true"
         android:inputType="textFilter"
         android:visibility="visible"
-        app:defaultQueryHint="@string/search_filter_hint"
+        app:defaultQueryHint="@string/search_line"
         app:iconifiedByDefault="false"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,7 +37,7 @@
         android:contentDescription="@string/add_recipe"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/design_default_color_primary_variant"
+        app:tint="@color/white"
         app:srcCompat="@drawable/ic_add_24"
         app:useCompatPadding="true" />
 

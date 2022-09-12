@@ -32,6 +32,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/newRecipeAddRecipeImageMaterialButton"
+                style="@style/Widget.AppTheme.AddImageButton"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:contentDescription="@string/recipe_add_recipe_image"
+                android:gravity="center"
+                android:padding="@dimen/common_spacing"
+                app:iconTint="@color/grey_500"
+                app:layout_constraintBottom_toBottomOf="@id/newRecipeImageView"
+                app:layout_constraintEnd_toEndOf="@id/newRecipeImageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/newRecipeImageView" />
 
 
             <EditText
@@ -145,8 +158,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/common_spacing"
+
                 android:contentDescription="@string/new_recipe_save_button_description"
                 android:text="@string/save_recipe"
+                android:backgroundTint="@color/colorDarkGrey"
+                android:padding="@dimen/common_spacing"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/newRecipeImageView"
                 app:layout_constraintStart_toStartOf="@id/newRecipeImageView"

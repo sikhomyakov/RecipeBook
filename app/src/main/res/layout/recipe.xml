@@ -12,6 +12,7 @@
         android:adjustViewBounds="true"
         android:contentDescription="@string/recipe_card_image_text_description"
         android:maxHeight="@dimen/max_recipe_image_height"
+        android:minHeight="@dimen/min_recipe_image_height"
         android:padding="@dimen/common_spacing"
         android:scaleType="center"
         android:src="@drawable/no_recipe"

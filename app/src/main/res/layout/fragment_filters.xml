@@ -65,6 +65,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/common_spacing"
         android:text="@string/reset_filters_button"
+        android:backgroundTint="@color/colorDarkGrey"
         app:layout_constraintEnd_toEndOf="@id/filtersTitleTextView"
         app:layout_constraintStart_toStartOf="@id/filtersTitleTextView"
         app:layout_constraintTop_toBottomOf="@id/filtersRecyclerView"
@@ -76,6 +77,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/common_spacing"
         android:text="@string/apply_filters_button"
+        android:backgroundTint="@color/colorDarkGrey"
         app:layout_constraintEnd_toEndOf="@id/filtersTitleTextView"
         app:layout_constraintStart_toStartOf="@id/filtersTitleTextView"
         app:layout_constraintTop_toBottomOf="@id/filtersRecyclerView" />
